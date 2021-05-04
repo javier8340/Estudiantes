@@ -17,8 +17,9 @@ public class CreateEstudianteRepository implements CreateEstudiantePort {
     private final EstudianteRepositoryJpa repository;
 
     @Override
-    public void create(Estudiante estudiante) throws Exception {
+    public EstudianteJpa create(Estudiante estudiante) throws Exception {
         EstudianteJpa estudianteJpa = new EstudianteJpa(estudiante);
         repository.save(estudianteJpa);
+        return estudianteJpa;
     }
 }
