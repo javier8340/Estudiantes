@@ -1,4 +1,4 @@
-package com.anderjavi;
+package com.anderjavi.estudiantes;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
