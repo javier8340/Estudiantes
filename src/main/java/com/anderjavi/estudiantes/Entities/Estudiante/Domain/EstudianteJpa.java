@@ -14,11 +14,23 @@ import java.util.Date;
 @AllArgsConstructor @NoArgsConstructor @Data
 public class EstudianteJpa {
 
+    public EstudianteJpa(Estudiante estudiante){
+        this.id = estudiante.id;
+        this.nombre = estudiante.nombre;
+        this.apellido = estudiante.apellido;
+        this.correo = estudiante.correo;
+        this.fechaEntrada = estudiante.fechaEntrada;
+        this.ciudad = estudiante.ciudad;
+        this.horasSemanales = estudiante.horasSemanales;
+        this.especialidad = estudiante.especialidad;
+        this.estado = estudiante.estado;
+    }
+
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     Integer id;
 
     String nombre;
-    String Apellido;
+    String apellido;
     String correo;
     Date fechaEntrada;
     String ciudad;
