@@ -1,8 +1,8 @@
 package com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository;
 
-import com.anderjavi.estudiantes.Entities.Estudiante.Domain.BusquedaCampos;
 import com.anderjavi.estudiantes.Entities.Estudiante.Domain.Estudiante;
 import com.anderjavi.estudiantes.Entities.Estudiante.Domain.EstudianteJpa;
+import com.anderjavi.estudiantes.Entities.Estudiante.Domain.dto.BusquedaEstudianteInput;
 import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.port.FindByEstudiantesPort;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -23,24 +23,90 @@ public class FindByEstudiantesRepository implements FindByEstudiantesPort {
     EntityManager entityManager;
 
     @Override
-    public List<Estudiante> findBy(BusquedaCampos busquedaCampos) {
+    public List<Estudiante> findBy(BusquedaEstudianteInput busquedaEstudianteInput) {
+
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<EstudianteJpa> criteriaQuery = criteriaBuilder.createQuery(EstudianteJpa.class);
 
         Root<EstudianteJpa> estudiante = criteriaQuery.from(EstudianteJpa.class);
 
-        Predicate finalPredicate = null;
-        for (int i = 0; i < busquedaCampos.getCampos().size(); i++) {
-            String campo = busquedaCampos.getCampos().get(i);
-            String valor = busquedaCampos.getValores().get(i);
 
-            Predicate predicado = criteriaBuilder.equal(estudiante.get(campo),valor);
+        Predicate finalPredicate = null;
+
+        if (busquedaEstudianteInput.getNombre() != null){
+            Predicate predicado = criteriaBuilder.equal(estudiante.get("nombre"),busquedaEstudianteInput.getNombre());
+
             if (finalPredicate != null){
                 finalPredicate = criteriaBuilder.and(finalPredicate,predicado);
             }else{
                 finalPredicate = predicado;
             }
         }
+
+        if (busquedaEstudianteInput.getApellido() != null){
+            Predicate predicado = criteriaBuilder.equal(estudiante.get("apellido"),busquedaEstudianteInput.getApellido());
+
+            if (finalPredicate != null){
+                finalPredicate = criteriaBuilder.and(finalPredicate,predicado);
+            }else{
+                finalPredicate = predicado;
+            }
+        }
+        if (busquedaEstudianteInput.getCorreo() != null){
+            Predicate predicado = criteriaBuilder.equal(estudiante.get("correo"),busquedaEstudianteInput.getCorreo());
+
+            if (finalPredicate != null){
+                finalPredicate = criteriaBuilder.and(finalPredicate,predicado);
+            }else{
+                finalPredicate = predicado;
+            }
+        }
+        if (busquedaEstudianteInput.getFechaEntrada() != null){
+            Predicate predicado = criteriaBuilder.equal(estudiante.get("fechaEntrada"),busquedaEstudianteInput.getFechaEntrada());
+
+            if (finalPredicate != null){
+                finalPredicate = criteriaBuilder.and(finalPredicate,predicado);
+            }else{
+                finalPredicate = predicado;
+            }
+        }
+        if (busquedaEstudianteInput.getCiudad() != null){
+            Predicate predicado = criteriaBuilder.equal(estudiante.get("ciudad"),busquedaEstudianteInput.getCiudad());
+
+            if (finalPredicate != null){
+                finalPredicate = criteriaBuilder.and(finalPredicate,predicado);
+            }else{
+                finalPredicate = predicado;
+            }
+        }
+        if (busquedaEstudianteInput.getHorasSemanales() != 0){
+            Predicate predicado = criteriaBuilder.equal(estudiante.get("horasSemanales"),busquedaEstudianteInput.getHorasSemanales());
+
+            if (finalPredicate != null){
+                finalPredicate = criteriaBuilder.and(finalPredicate,predicado);
+            }else{
+                finalPredicate = predicado;
+            }
+        }
+        if (busquedaEstudianteInput.getEspecialidad() != null){
+            Predicate predicado = criteriaBuilder.equal(estudiante.get("especialidad"),busquedaEstudianteInput.getEspecialidad());
+
+            if (finalPredicate != null){
+                finalPredicate = criteriaBuilder.and(finalPredicate,predicado);
+            }else{
+                finalPredicate = predicado;
+            }
+        }
+        if (busquedaEstudianteInput.getEstado() != null){
+            Predicate predicado = criteriaBuilder.equal(estudiante.get("estado"),busquedaEstudianteInput.getEstado());
+
+            if (finalPredicate != null){
+                finalPredicate = criteriaBuilder.and(finalPredicate,predicado);
+            }else{
+                finalPredicate = predicado;
+            }
+        }
+
 
         criteriaQuery.where(finalPredicate);
 
