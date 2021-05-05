@@ -20,8 +20,8 @@ public class CreateEstudianteRepository implements CreateEstudiantePort {
     }
     @Override
     public EstudianteJpa create(Estudiante estudiante) throws Exception {
-        jdbcTemplate.update("INSERT INTO ESTUDIANTE_JPA  (id,nombre, apellido,correo,fecha_entrada,ciudad,horas_semanales,especialidad,estado) " +
-                "VALUES (0,?,?,?,?,?,?,?,?)",
+        jdbcTemplate.update("INSERT INTO ESTUDIANTE_JPA  (nombre, apellido,correo,fecha_entrada,ciudad,horas_semanales,especialidad,estado) " +
+                "VALUES (?,?,?,?,?,?,?,?)",
                 estudiante.getNombre(),estudiante.getApellido(),estudiante.getCorreo(),estudiante.getFechaEntrada(),
                 estudiante.getCiudad(),estudiante.getHorasSemanales(),estudiante.getEspecialidad(),estudiante.getEstado());
         return null;
