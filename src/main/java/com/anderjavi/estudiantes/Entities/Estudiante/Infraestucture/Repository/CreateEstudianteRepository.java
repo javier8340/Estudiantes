@@ -2,24 +2,30 @@ package com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository;
 
 import com.anderjavi.estudiantes.Entities.Estudiante.Domain.Estudiante;
 import com.anderjavi.estudiantes.Entities.Estudiante.Domain.EstudianteJpa;
-import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.jpa.EstudianteRepositoryJpa;
 import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.port.CreateEstudiantePort;
 import lombok.AllArgsConstructor;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @AllArgsConstructor
 @Repository
 public class CreateEstudianteRepository implements CreateEstudiantePort {
 
-    private final EstudianteRepositoryJpa repository;
+    private JdbcTemplate jdbcTemplate;
 
+    @Autowired
+    public void DynamicRepository(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
     @Override
     public EstudianteJpa create(Estudiante estudiante) throws Exception {
-        EstudianteJpa estudianteJpa = new EstudianteJpa(estudiante);
-        repository.save(estudianteJpa);
-        return estudianteJpa;
+        jdbcTemplate.update("INSERT INTO ESTUDIANTE_JPA  (id,nombre, apellido,correo,fecha_entrada,ciudad,horas_semanales,especialidad,estado) " +
+                "VALUES (0,?,?,?,?,?,?,?,?)",
+                estudiante.getNombre(),estudiante.getApellido(),estudiante.getCorreo(),estudiante.getFechaEntrada(),
+                estudiante.getCiudad(),estudiante.getHorasSemanales(),estudiante.getEspecialidad(),estudiante.getEstado());
+        return null;
     }
 }
+
+
