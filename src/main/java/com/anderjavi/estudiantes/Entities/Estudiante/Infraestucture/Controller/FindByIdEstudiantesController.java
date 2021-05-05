@@ -1,5 +1,6 @@
 package com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Controller;
 
+import com.anderjavi.estudiantes.Entities.Estudiante.Domain.Estudiante;
 import com.anderjavi.estudiantes.Entities.Estudiante.Domain.EstudianteJpa;
 import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.port.FindAllEstudiantesPort;
 import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.port.FindByIdEstudiantesPort;
@@ -17,7 +18,7 @@ public class FindByIdEstudiantesController {
     private FindByIdEstudiantesPort findByIdEstudiantesPort;
 
     @GetMapping("/api/estudiante/{id}")
-    public EstudianteJpa findById(@PathVariable("id") int id) throws Exception {
+    public Estudiante findById(@PathVariable("id") int id) throws Exception {
         return findByIdEstudiantesPort.findById(id);
     }
 }
