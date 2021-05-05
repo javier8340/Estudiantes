@@ -31,9 +31,9 @@ public class FindByEstudiantesRepository implements FindByEstudiantesPort {
         Root<EstudianteJpa> estudiante = criteriaQuery.from(EstudianteJpa.class);
 
 
-        Predicate finalPredicate = null;
 
-        finalPredicate = getPredicate(busquedaEstudianteInput, criteriaBuilder, estudiante, finalPredicate);
+
+        Predicate finalPredicate = getPredicate(busquedaEstudianteInput, criteriaBuilder, estudiante);
 
 
         criteriaQuery.where(finalPredicate);
@@ -48,7 +48,8 @@ public class FindByEstudiantesRepository implements FindByEstudiantesPort {
 
     }
 
-    private Predicate getPredicate(BusquedaEstudianteInput busquedaEstudianteInput, CriteriaBuilder criteriaBuilder, Root<EstudianteJpa> estudiante, Predicate finalPredicate) {
+    private Predicate getPredicate(BusquedaEstudianteInput busquedaEstudianteInput, CriteriaBuilder criteriaBuilder, Root<EstudianteJpa> estudiante) {
+        Predicate finalPredicate = null;
         if (busquedaEstudianteInput.getNombre() != null){
             Predicate predicado = criteriaBuilder.equal(estudiante.get("nombre"), busquedaEstudianteInput.getNombre());
 
