@@ -20,7 +20,11 @@ public class FindLastIdEstudianteRepository implements FindLastIdEstudiantePort 
 
     @Override
     public Integer getLastId() {
-
-        return 0;
+        int result = 0;
+        try {
+            result = jdbcTemplate.queryForObject(
+                    "SELECT max(id) FROM estudiante_jpa", Integer.class);
+        }catch (Exception ignored){}
+        return ++result;
     }
 }
