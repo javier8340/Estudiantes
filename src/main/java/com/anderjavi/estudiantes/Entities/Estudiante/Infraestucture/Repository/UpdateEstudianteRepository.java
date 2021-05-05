@@ -6,28 +6,36 @@ import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.j
 import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.port.FindByIdEstudiantesPort;
 import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.port.UpdateEstudiantePort;
 import lombok.AllArgsConstructor;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 @Repository
 @AllArgsConstructor
 public class UpdateEstudianteRepository  implements UpdateEstudiantePort {
 
+    private JdbcTemplate jdbcTemplate;
 
-    private FindByIdEstudiantesPort findByIdEstudiantesPort;
-    private EstudianteRepositoryJpa estudianteRepositoryJpa;
     @Override
     public void update(int id, Estudiante estudiante) throws Exception {
-        Estudiante estudianteDeBd = findByIdEstudiantesPort.findById(id);
-        estudianteDeBd.setNombre(estudiante.getNombre());
-        estudianteDeBd.setApellido(estudiante.getApellido());
-        estudianteDeBd.setCorreo(estudiante.getCorreo());
-        estudianteDeBd.setFechaEntrada(estudiante.getFechaEntrada());
-        estudianteDeBd.setCiudad(estudiante.getCiudad());
-        estudianteDeBd.setHorasSemanales(estudiante.getHorasSemanales());
-        estudianteDeBd.setEspecialidad(estudiante.getEspecialidad());
-        estudianteDeBd.setEstado(estudiante.getEstado());
 
-        estudianteRepositoryJpa.save(new EstudianteJpa(estudianteDeBd));
-
+        jdbcTemplate.update("UPDATE TABLE estudiante_jpa " +
+                        "SET nombre = ?," +
+                        " apellido = ?," +
+                        " correo = ?," +
+                        " fecha_entrada = ?," +
+                        " ciudad = ?," +
+                        " horas_semanales = ?," +
+                        " especialidad = ?," +
+                        " estado = ?" +
+                        " WHERE id = ?",
+                estudiante.getNombre(),
+                estudiante.getApellido(),
+                estudiante.getCorreo(),
+                estudiante.getFechaEntrada(),
+                estudiante.getCiudad(),
+                estudiante.getHorasSemanales(),
+                estudiante.getEspecialidad(),
+                estudiante.getEstado(),
+                id);
     }
 }
