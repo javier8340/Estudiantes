@@ -1,5 +1,6 @@
 package com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Controller;
 
+import com.anderjavi.estudiantes.Entities.Estudiante.Domain.Estudiante;
 import com.anderjavi.estudiantes.Entities.Estudiante.Domain.EstudianteJpa;
 import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.port.FindAllEstudiantesPort;
 import lombok.AllArgsConstructor;
@@ -15,7 +16,7 @@ public class FindAllEstudiantesController {
     private FindAllEstudiantesPort findEstudiantePort;
 
     @GetMapping("/api/estudiante")
-    public List<EstudianteJpa> findAll() {
+    public List<Estudiante> findAll() {
         return findEstudiantePort.findAll();
     }
 }
