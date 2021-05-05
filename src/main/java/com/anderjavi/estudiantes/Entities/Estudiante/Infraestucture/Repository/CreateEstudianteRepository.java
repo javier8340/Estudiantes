@@ -25,7 +25,7 @@ public class CreateEstudianteRepository implements CreateEstudiantePort {
 
 
         jdbcTemplate.update("INSERT INTO ESTUDIANTE_JPA  (id,nombre, apellido,correo,fecha_entrada,ciudad,horas_semanales,especialidad,estado) " +
-                "VALUES (?.?,?,?,?,?,?,?,?)",
+                "VALUES (?,?,?,?,?,?,?,?,?)",
                 repository.getLastId(),
                 estudiante.getNombre(),estudiante.getApellido(),estudiante.getCorreo(),estudiante.getFechaEntrada(),
                 estudiante.getCiudad(),estudiante.getHorasSemanales(),estudiante.getEspecialidad(),estudiante.getEstado());
