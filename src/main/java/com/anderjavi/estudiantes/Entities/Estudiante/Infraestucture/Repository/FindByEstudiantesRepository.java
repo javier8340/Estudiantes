@@ -29,12 +29,8 @@ public class FindByEstudiantesRepository implements FindByEstudiantesPort {
         CriteriaQuery<EstudianteJpa> criteriaQuery = criteriaBuilder.createQuery(EstudianteJpa.class);
 
         Root<EstudianteJpa> estudiante = criteriaQuery.from(EstudianteJpa.class);
-
-
-
-
+        
         Predicate finalPredicate = getPredicate(busquedaEstudianteInput, criteriaBuilder, estudiante);
-
 
         criteriaQuery.where(finalPredicate);
 
