@@ -23,6 +23,6 @@ public class FindByIdEstudiantesRepository implements FindByIdEstudiantesPort {
     public Estudiante findById(int id) throws Exception {
         return jdbcTemplate.queryForObject(
                 "SELECT * FROM estudiante_jpa WHERE id = ?",
-                new EstudianteRowMapper() );
+                new EstudianteRowMapper(), id);
     }
 }
