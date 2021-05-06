@@ -11,25 +11,30 @@ import java.util.Date;
 public class Estudiante {
 
     public Estudiante(EstudianteJpa estudianteJpa){
-        this.nombre = estudianteJpa.nombre;
-        this.apellido = estudianteJpa.apellido;
-        this.correo = estudianteJpa.correo;
-        this.fechaEntrada = estudianteJpa.fechaEntrada;
-        this.ciudad = estudianteJpa.ciudad;
-        this.horasSemanales = estudianteJpa.horasSemanales;
-        this.especialidad = estudianteJpa.especialidad;
-        this.estado = estudianteJpa.estado;
+        this.name = estudianteJpa.name;
+        this.surname = estudianteJpa.surname;
+        this.company_email = estudianteJpa.company_email;
+        this.personal_email = estudianteJpa.personal_email;
+        this.city = estudianteJpa.city;
+        this.numHoursWeek = estudianteJpa.numHoursWeek;
+        this.coments = estudianteJpa.coments;
+        this.branch = estudianteJpa.branch;
+        this.active = estudianteJpa.active;
+        this.createdDate = estudianteJpa.createdDate;
+        this.terminationDate = estudianteJpa.terminationDate;
     }
 
-
-    String nombre;
-    String apellido;
-    String correo;
+    String name;
+    String surname;
+    String company_email;
+    String personal_email;
+    String city;
+    int numHoursWeek;
+    String coments;
+    String branch;
+    boolean active;
     @JsonFormat(pattern = "MM/dd/yyyy")
-    Date fechaEntrada;
-    String ciudad;
-    int horasSemanales;
-    String especialidad;
-    String estado;
-
+    Date createdDate;
+    @JsonFormat(pattern = "MM/dd/yyyy")
+    Date terminationDate;
 }

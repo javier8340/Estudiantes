@@ -18,14 +18,14 @@ public class UpdateEstudianteRepository  implements UpdateEstudiantePort {
     @Override
     public void update(int id, Estudiante estudiante) throws Exception {
         EstudianteJpa estudianteJpa = findByIdEstudiantesPort.findById(id);
-        estudianteJpa.setNombre(estudiante.getNombre());
-        estudianteJpa.setApellido(estudiante.getApellido());
-        estudianteJpa.setCorreo(estudiante.getCorreo());
-        estudianteJpa.setFechaEntrada(estudiante.getFechaEntrada());
-        estudianteJpa.setCiudad(estudiante.getCiudad());
-        estudianteJpa.setHorasSemanales(estudiante.getHorasSemanales());
+        estudianteJpa.setName(estudiante.getName());
+        estudianteJpa.setSurname(estudiante.getSurname());
+        estudianteJpa.setCompany_email(estudiante.getCompany_email());
+        estudianteJpa.setCreatedDate(estudiante.getCreatedDate());
+        estudianteJpa.setCity(estudiante.getCity());
+        estudianteJpa.setNumHoursWeek(estudiante.getNumHoursWeek());
         estudianteJpa.setEspecialidad(estudiante.getEspecialidad());
-        estudianteJpa.setEstado(estudiante.getEstado());
+        estudianteJpa.setActive(estudiante.getEstado());
 
         estudianteRepositoryJpa.save(estudianteJpa);
 
