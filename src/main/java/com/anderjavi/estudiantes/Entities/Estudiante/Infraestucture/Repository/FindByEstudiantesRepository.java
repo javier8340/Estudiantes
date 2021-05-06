@@ -46,8 +46,8 @@ public class FindByEstudiantesRepository implements FindByEstudiantesPort {
 
     private Predicate getPredicate(BusquedaEstudianteInput busquedaEstudianteInput, CriteriaBuilder criteriaBuilder, Root<EstudianteJpa> estudiante) {
         Predicate finalPredicate = null;
-        if (busquedaEstudianteInput.getNombre() != null){
-            Predicate predicado = criteriaBuilder.equal(estudiante.get("nombre"), busquedaEstudianteInput.getNombre());
+        if (busquedaEstudianteInput.getName() != null){
+            Predicate predicado = criteriaBuilder.equal(estudiante.get("nombre"), busquedaEstudianteInput.getName());
 
             if (finalPredicate != null){
                 finalPredicate = criteriaBuilder.and(finalPredicate,predicado);
@@ -56,8 +56,8 @@ public class FindByEstudiantesRepository implements FindByEstudiantesPort {
             }
         }
 
-        if (busquedaEstudianteInput.getApellido() != null){
-            Predicate predicado = criteriaBuilder.equal(estudiante.get("apellido"), busquedaEstudianteInput.getApellido());
+        if (busquedaEstudianteInput.getSurname() != null){
+            Predicate predicado = criteriaBuilder.equal(estudiante.get("apellido"), busquedaEstudianteInput.getSurname());
 
             if (finalPredicate != null){
                 finalPredicate = criteriaBuilder.and(finalPredicate,predicado);
@@ -65,8 +65,8 @@ public class FindByEstudiantesRepository implements FindByEstudiantesPort {
                 finalPredicate = predicado;
             }
         }
-        if (busquedaEstudianteInput.getCorreo() != null){
-            Predicate predicado = criteriaBuilder.equal(estudiante.get("correo"), busquedaEstudianteInput.getCorreo());
+        if (busquedaEstudianteInput.getCompany_email() != null){
+            Predicate predicado = criteriaBuilder.equal(estudiante.get("correo"), busquedaEstudianteInput.getCompany_email());
 
             if (finalPredicate != null){
                 finalPredicate = criteriaBuilder.and(finalPredicate,predicado);
@@ -74,8 +74,8 @@ public class FindByEstudiantesRepository implements FindByEstudiantesPort {
                 finalPredicate = predicado;
             }
         }
-        if (busquedaEstudianteInput.getFechaEntrada() != null){
-            Predicate predicado = criteriaBuilder.equal(estudiante.get("fechaEntrada"), busquedaEstudianteInput.getFechaEntrada());
+        if (busquedaEstudianteInput.getCreatedDate() != null){
+            Predicate predicado = criteriaBuilder.equal(estudiante.get("fechaEntrada"), busquedaEstudianteInput.getCreatedDate());
 
             if (finalPredicate != null){
                 finalPredicate = criteriaBuilder.and(finalPredicate,predicado);
@@ -83,8 +83,8 @@ public class FindByEstudiantesRepository implements FindByEstudiantesPort {
                 finalPredicate = predicado;
             }
         }
-        if (busquedaEstudianteInput.getCiudad() != null){
-            Predicate predicado = criteriaBuilder.equal(estudiante.get("ciudad"), busquedaEstudianteInput.getCiudad());
+        if (busquedaEstudianteInput.getCity() != null){
+            Predicate predicado = criteriaBuilder.equal(estudiante.get("ciudad"), busquedaEstudianteInput.getCity());
 
             if (finalPredicate != null){
                 finalPredicate = criteriaBuilder.and(finalPredicate,predicado);
@@ -92,8 +92,8 @@ public class FindByEstudiantesRepository implements FindByEstudiantesPort {
                 finalPredicate = predicado;
             }
         }
-        if (busquedaEstudianteInput.getHorasSemanales() != 0){
-            Predicate predicado = criteriaBuilder.equal(estudiante.get("horasSemanales"), busquedaEstudianteInput.getHorasSemanales());
+        if (busquedaEstudianteInput.getNumHoursWeek() != 0){
+            Predicate predicado = criteriaBuilder.equal(estudiante.get("horasSemanales"), busquedaEstudianteInput.getNumHoursWeek());
 
             if (finalPredicate != null){
                 finalPredicate = criteriaBuilder.and(finalPredicate,predicado);
@@ -101,8 +101,8 @@ public class FindByEstudiantesRepository implements FindByEstudiantesPort {
                 finalPredicate = predicado;
             }
         }
-        if (busquedaEstudianteInput.getEspecialidad() != null){
-            Predicate predicado = criteriaBuilder.equal(estudiante.get("especialidad"), busquedaEstudianteInput.getEspecialidad());
+        if (busquedaEstudianteInput.getBranch() != null){
+            Predicate predicado = criteriaBuilder.equal(estudiante.get("especialidad"), busquedaEstudianteInput.getBranch());
 
             if (finalPredicate != null){
                 finalPredicate = criteriaBuilder.and(finalPredicate,predicado);
@@ -110,8 +110,8 @@ public class FindByEstudiantesRepository implements FindByEstudiantesPort {
                 finalPredicate = predicado;
             }
         }
-        if (busquedaEstudianteInput.getEstado() != null){
-            Predicate predicado = criteriaBuilder.equal(estudiante.get("estado"), busquedaEstudianteInput.getEstado());
+        if (busquedaEstudianteInput.isActive()){
+            Predicate predicado = criteriaBuilder.equal(estudiante.get("estado"), busquedaEstudianteInput.isActive());
 
             if (finalPredicate != null){
                 finalPredicate = criteriaBuilder.and(finalPredicate,predicado);
