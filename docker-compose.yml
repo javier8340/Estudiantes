@@ -19,4 +19,5 @@ networks:
     name: aurora
 volumes:
   pg:
+    external: true
     name: pgaurora
