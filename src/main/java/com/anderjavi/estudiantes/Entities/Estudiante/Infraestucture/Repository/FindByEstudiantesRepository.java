@@ -46,7 +46,7 @@ public class FindByEstudiantesRepository implements FindByEstudiantesPort {
 
     private Predicate getPredicate(BusquedaEstudianteInput busquedaEstudianteInput, CriteriaBuilder criteriaBuilder, Root<EstudianteJpa> estudiante) {
         Predicate finalPredicate = null;
-        if (busquedaEstudianteInput.getName() != null){
+        /*if (busquedaEstudianteInput.getName() != null){
             Predicate predicado = criteriaBuilder.equal(estudiante.get("nombre"), busquedaEstudianteInput.getName());
 
             if (finalPredicate != null){
@@ -56,7 +56,7 @@ public class FindByEstudiantesRepository implements FindByEstudiantesPort {
             }
         }
 
-        if (busquedaEstudianteInput.getSurname() != null){
+        if (busquedaEstudianteInput.getApellido() != null){
             Predicate predicado = criteriaBuilder.equal(estudiante.get("apellido"), busquedaEstudianteInput.getSurname());
 
             if (finalPredicate != null){
@@ -118,7 +118,7 @@ public class FindByEstudiantesRepository implements FindByEstudiantesPort {
             }else{
                 finalPredicate = predicado;
             }
-        }
+        }*/
         return finalPredicate;
     }
 }

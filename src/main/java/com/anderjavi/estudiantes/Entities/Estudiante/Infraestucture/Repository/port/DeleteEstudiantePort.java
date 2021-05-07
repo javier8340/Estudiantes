@@ -4,5 +4,5 @@ import com.anderjavi.estudiantes.Entities.Estudiante.Domain.Estudiante;
 import com.anderjavi.estudiantes.Entities.Estudiante.Domain.EstudianteJpa;
 
 public interface DeleteEstudiantePort {
-    void deleteById(int idEstudiante);
+    void deleteById(String idEstudiante);
 }

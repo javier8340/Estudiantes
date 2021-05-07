@@ -16,7 +16,7 @@ public class FindByIdEstudiantesRepository implements FindByIdEstudiantesPort {
     EstudianteRepositoryJpa estudianteRepositoryJpa;
 
     @Override
-    public EstudianteJpa findById(int id) throws Exception {
+    public EstudianteJpa findById(String id) throws Exception {
         return estudianteRepositoryJpa.findById(id).orElseThrow(Exception::new);
     }
 }

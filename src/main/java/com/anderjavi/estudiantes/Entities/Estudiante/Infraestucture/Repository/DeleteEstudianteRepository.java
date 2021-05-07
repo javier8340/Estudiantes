@@ -13,7 +13,7 @@ public class DeleteEstudianteRepository implements DeleteEstudiantePort {
     EstudianteRepositoryJpa estudianteRepositoryJpa;
 
     @Override
-    public void deleteById(int estudianteId) {
+    public void deleteById(String estudianteId) {
         estudianteRepositoryJpa.deleteById(estudianteId);
     }
 }

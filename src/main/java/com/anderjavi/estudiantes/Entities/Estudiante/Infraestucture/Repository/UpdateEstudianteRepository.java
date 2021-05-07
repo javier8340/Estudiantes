@@ -16,7 +16,7 @@ public class UpdateEstudianteRepository  implements UpdateEstudiantePort {
     private FindByIdEstudiantesPort findByIdEstudiantesPort;
     private EstudianteRepositoryJpa estudianteRepositoryJpa;
     @Override
-    public void update(int id, Estudiante estudiante) throws Exception {
+    public void update(String id, Estudiante estudiante) throws Exception {
         EstudianteJpa estudianteJpa = findByIdEstudiantesPort.findById(id);
         estudianteJpa.setName(estudiante.getName());
         estudianteJpa.setSurname(estudiante.getSurname());
