@@ -6,22 +6,12 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class BusquedaEstudianteInput {
-
-    /*String nombre;
-    String apellido;
-    String correo;
-    @JsonFormat(pattern = "MM/dd/yyyy")
-    Date fechaEntrada;
-    String ciudad;
-    int horasSemanales;
-    String especialidad;
-    String estado;*/
+public class EstudianteSearchInputDto {
 
     String name;
     String surname;
-    String company_email;
-    String personal_email;
+    String companyEmail;
+    String personalEmail;
     String city;
     int numHoursWeek;
     String coments;

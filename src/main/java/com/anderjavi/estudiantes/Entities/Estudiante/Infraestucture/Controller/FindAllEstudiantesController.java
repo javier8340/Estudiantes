@@ -1,6 +1,7 @@
 package com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Controller;
 
 import com.anderjavi.estudiantes.Entities.Estudiante.Domain.EstudianteJpa;
+import com.anderjavi.estudiantes.Entities.Estudiante.Domain.dto.EstudianteOutputDto;
 import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.port.FindAllEstudiantesPort;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
@@ -17,7 +18,7 @@ public class FindAllEstudiantesController {
     private FindAllEstudiantesPort findEstudiantePort;
 
     @GetMapping("/api/estudiante")
-    public List<EstudianteJpa> findAll() {
+    public List<EstudianteOutputDto> findAll() {
         return findEstudiantePort.findAll();
     }
 }
