@@ -13,8 +13,8 @@ public class Estudiante {
     public Estudiante(EstudianteJpa estudianteJpa){
         this.name = estudianteJpa.name;
         this.surname = estudianteJpa.surname;
-        this.company_email = estudianteJpa.company_email;
-        this.personal_email = estudianteJpa.personal_email;
+        this.companyEmail = estudianteJpa.companyEmail;
+        this.personalEmail = estudianteJpa.personalEmail;
         this.city = estudianteJpa.city;
         this.numHoursWeek = estudianteJpa.numHoursWeek;
         this.coments = estudianteJpa.coments;
@@ -26,8 +26,8 @@ public class Estudiante {
 
     String name;
     String surname;
-    String company_email;
-    String personal_email;
+    String companyEmail;
+    String personalEmail;
     String city;
     int numHoursWeek;
     String coments;

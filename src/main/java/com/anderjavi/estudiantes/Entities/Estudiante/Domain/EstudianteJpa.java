@@ -17,8 +17,8 @@ public class EstudianteJpa {
     public EstudianteJpa(Estudiante estudiante){
         this.name = estudiante.name;
         this.surname = estudiante.surname;
-        this.company_email = estudiante.company_email;
-        this.personal_email = estudiante.personal_email;
+        this.companyEmail = estudiante.companyEmail;
+        this.personalEmail = estudiante.personalEmail;
         this.city = estudiante.city;
         this.numHoursWeek = estudiante.numHoursWeek;
         this.coments = estudiante.coments;
@@ -29,7 +29,6 @@ public class EstudianteJpa {
     }
 
     @Id
-    @Column(name = "id_student")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "estudiantes_seq")
     @GenericGenerator(
             name = "estudiantes_seq",
@@ -39,18 +38,19 @@ public class EstudianteJpa {
             @Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "EST"),
             @Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%08d")
             })
-    String id_student;
+    @Column(name = "id_student")
+    Integer idStudent;
     @Column(name = "name", nullable = false)
     String name;
     @Column(name = "surname", nullable = false)
     String surname;
     @Column(name = "company_email", nullable = false)
-    String company_email;
+    String companyEmail;
     @Column(name = "personal_email", nullable = false)
-    String personal_email;
+    String personalEmail;
     @Column(name = "city", nullable = false)
     String city;
-    @Column(name = "numHoursWeek", nullable = false)
+    @Column(name = "num_hours_week", nullable = false)
     int numHoursWeek;
     @Column(name = "coments")
     String coments;
@@ -58,8 +58,8 @@ public class EstudianteJpa {
     String branch;
     @Column(name = "active", nullable = false)
     boolean active;
-    @Column(name = "createdDate", nullable = false)
+    @Column(name = "created_date", nullable = false)
     Date createdDate;
-    @Column(name = "terminationDate")
+    @Column(name = "termination_date")
     Date terminationDate;
 }
