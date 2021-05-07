@@ -1,9 +1,11 @@
 package com.anderjavi.estudiantes.Entities.Estudiante.Domain;
 
+import com.anderjavi.estudiantes.Generator.StringPrefixedSequenceIdGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -27,17 +29,17 @@ public class EstudianteJpa {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "student_sequence")
-    @GenericGenerator(
-            name = "student_sequence",
-            strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
-            parameters = {
-                    @org.hibernate.annotations.Parameter(name = "sequence_name", value = "student_sequence"),
-                    @org.hibernate.annotations.Parameter(name = "initial_value", value = "0"),
-                    @org.hibernate.annotations.Parameter(name = "increment_size", value = "1")
-            })
     @Column(name = "id_student")
-    Integer id_student;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "estudiantes_seq")
+    @GenericGenerator(
+            name = "estudiantes_seq",
+            strategy = "com.anderjavi.estudiantes.Generator.StringPrefixedSequenceIdGenerator",
+            parameters = {
+            @Parameter(name = StringPrefixedSequenceIdGenerator.INCREMENT_PARAM, value = "1"),
+            @Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "EST"),
+            @Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%08d")
+            })
+    String id_student;
     @Column(name = "name", nullable = false)
     String name;
     @Column(name = "surname", nullable = false)
