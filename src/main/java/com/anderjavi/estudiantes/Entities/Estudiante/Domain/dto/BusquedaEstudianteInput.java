@@ -8,7 +8,7 @@ import java.util.Date;
 @Data
 public class BusquedaEstudianteInput {
 
-    String nombre;
+    /*String nombre;
     String apellido;
     String correo;
     @JsonFormat(pattern = "MM/dd/yyyy")
@@ -16,8 +16,8 @@ public class BusquedaEstudianteInput {
     String ciudad;
     int horasSemanales;
     String especialidad;
-    String estado;
-/*
+    String estado;*/
+
     String name;
     String surname;
     String company_email;
@@ -30,6 +30,6 @@ public class BusquedaEstudianteInput {
     @JsonFormat(pattern = "MM/dd/yyyy")
     Date createdDate;
     @JsonFormat(pattern = "MM/dd/yyyy")
-    Date terminationDate;*/
+    Date terminationDate;
 
 }
