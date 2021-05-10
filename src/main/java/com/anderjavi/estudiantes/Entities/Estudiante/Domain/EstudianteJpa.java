@@ -1,17 +1,30 @@
 package com.anderjavi.estudiantes.Entities.Estudiante.Domain;
 
 import com.anderjavi.estudiantes.Generator.StringPrefixedSequenceIdGenerator;
+import com.anderjavi.estudiantes.validators.ValidDate;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.sun.istack.NotNull;
+import io.swagger.annotations.ApiParam;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @AllArgsConstructor @NoArgsConstructor @Data
+@Table(
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = "company_email", name = "unique_company_email"),
+                @UniqueConstraint(columnNames = "personal_email", name = "unique_personal_email"),
+                @UniqueConstraint(columnNames = {"name","surname"}, name = "unique_name_surname")
+        }
+)
 public class EstudianteJpa {
 
     public EstudianteJpa(Estudiante estudiante){
@@ -39,27 +52,50 @@ public class EstudianteJpa {
             @Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%08d")
             })
     @Column(name = "id_student")
-    Integer idStudent;
-    @Column(name = "name", nullable = false)
+    String idStudent;
+
+    @NotNull
+    @Column(name = "name")
     String name;
-    @Column(name = "surname", nullable = false)
+
+    @NotNull
+    @Column(name = "surname")
     String surname;
-    @Column(name = "company_email", nullable = false)
+
+    @NotNull
+    @Column(name = "company_email")
     String companyEmail;
-    @Column(name = "personal_email", nullable = false)
+
+    @NotNull
+    @Column(name = "personal_email")
     String personalEmail;
-    @Column(name = "city", nullable = false)
+
+    @NotNull
+    @Column(name = "city")
     String city;
-    @Column(name = "num_hours_week", nullable = false)
+
+    @NotNull
+    @Column(name = "num_hours_week")
     int numHoursWeek;
+
     @Column(name = "coments")
     String coments;
-    @Column(name = "branch", nullable = false)
-    String branch;
-    @Column(name = "active", nullable = false)
+
+    @NotNull
+    @Column(name = "branch")
+    Branch branch;
+
+    @NotNull
+    @Column(name = "active")
     boolean active;
-    @Column(name = "created_date", nullable = false)
+
+
+    @NotNull
+    @Column(name = "created_date")
+    @ValidDate
     Date createdDate;
+
+
     @Column(name = "termination_date")
     Date terminationDate;
 }

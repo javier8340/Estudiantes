@@ -31,10 +31,10 @@ public class Estudiante {
     String city;
     int numHoursWeek;
     String coments;
-    String branch;
+    Branch branch;
     boolean active;
-    @JsonFormat(pattern = "MM/dd/yyyy")
+//    @JsonFormat(pattern = "MM/dd/yyyy")
     Date createdDate;
-    @JsonFormat(pattern = "MM/dd/yyyy")
+//    @JsonFormat(pattern = "MM/dd/yyyy")
     Date terminationDate;
 }
