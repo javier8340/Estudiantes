@@ -16,6 +16,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.persistence.*;
+import java.security.InvalidParameterException;
 import java.util.Date;
 
 @Entity
@@ -29,7 +30,7 @@ import java.util.Date;
 )
 public class EstudianteJpa {
 
-    public EstudianteJpa(EstudianteInputDto estudianteInputDto){
+    public EstudianteJpa(EstudianteInputDto estudianteInputDto) {
         this.name = estudianteInputDto.getName();
         this.surname = estudianteInputDto.getSurname();
         this.companyEmail = estudianteInputDto.getCompanyEmail();
@@ -39,8 +40,8 @@ public class EstudianteJpa {
         this.coments = estudianteInputDto.getComents();
         this.branch = estudianteInputDto.getBranch();
         this.active = estudianteInputDto.isActive();
-        this.createdDate = estudianteInputDto.getCreatedDate();
-        this.terminationDate = estudianteInputDto.getTerminationDate();
+        this.setTerminationDate(estudianteInputDto.getTerminationDate());
+        this.setCreatedDate(estudianteInputDto.getCreatedDate()); //cambio al setter para añadir restricciones
     }
     public EstudianteJpa(EstudianteOutputDto estudianteOutputDto){
         this.name = estudianteOutputDto.getName();
@@ -52,8 +53,8 @@ public class EstudianteJpa {
         this.coments = estudianteOutputDto.getComents();
         this.branch = estudianteOutputDto.getBranch();
         this.active = estudianteOutputDto.isActive();
-        this.createdDate = estudianteOutputDto.getCreatedDate();
-        this.terminationDate = estudianteOutputDto.getTerminationDate();
+        this.setTerminationDate(estudianteOutputDto.getTerminationDate());
+        this.setCreatedDate(estudianteOutputDto.getCreatedDate()); //cambio al setter para añadir restricciones
     }
 
     @Id
@@ -110,4 +111,23 @@ public class EstudianteJpa {
     Date createdDate;
     @Column(name = "termination_date")
     Date terminationDate;
+
+    public void setCreatedDate(Date createdDate) {
+        if (this.terminationDate != null){
+            if (!this.terminationDate.after(createdDate)){
+                throw new InvalidParameterException("create date debe ser inferior a termination date");
+            }
+        }
+        this.createdDate = createdDate;
+
+    }
+
+    public void setTerminationDate(Date terminationDate) {
+        if (this.createdDate != null){
+            if (!this.createdDate.before(terminationDate)){
+                throw new InvalidParameterException("create date debe ser inferior a termination date");
+            }
+        }
+        this.terminationDate = terminationDate;
+    }
 }
