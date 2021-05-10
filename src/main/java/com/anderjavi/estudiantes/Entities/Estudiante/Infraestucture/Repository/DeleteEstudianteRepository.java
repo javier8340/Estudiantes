@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 public class DeleteEstudianteRepository implements DeleteEstudiantePort {
 
     EstudianteRepositoryJpa estudianteRepositoryJpa;
-    FindByIdEstudiantesPort estudiantesPort;
+    FindByIdEstudiantesPort findByIdEstudiantesPort;
 
     @Override
     public void deleteById(String estudianteId) {
@@ -23,7 +23,7 @@ public class DeleteEstudianteRepository implements DeleteEstudiantePort {
 
     private void checkDeleteable(String estudianteId){
         try {
-            estudiantesPort.findById(estudianteId);
+            findByIdEstudiantesPort.findById(estudianteId);
         }catch (Exception e){
             throw new UnauthorizedException();
         }

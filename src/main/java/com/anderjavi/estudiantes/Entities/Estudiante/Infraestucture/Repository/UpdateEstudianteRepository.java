@@ -6,6 +6,7 @@ import com.anderjavi.estudiantes.Entities.Estudiante.Domain.dto.EstudianteInputD
 import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.jpa.EstudianteRepositoryJpa;
 import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.port.FindByIdEstudiantesPort;
 import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.port.UpdateEstudiantePort;
+import com.anderjavi.estudiantes.exceptions.UnauthorizedException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -18,6 +19,7 @@ public class UpdateEstudianteRepository  implements UpdateEstudiantePort {
     private EstudianteRepositoryJpa estudianteRepositoryJpa;
     @Override
     public void update(String id, EstudianteInputDto estudianteInputDto) throws Exception {
+        checkUpdateable(id);
         EstudianteJpa estudianteJpa = new EstudianteJpa(findByIdEstudiantesPort.findById(id));
         estudianteJpa.setName(estudianteInputDto.getName());
         estudianteJpa.setSurname(estudianteInputDto.getSurname());
@@ -31,5 +33,13 @@ public class UpdateEstudianteRepository  implements UpdateEstudiantePort {
 
         estudianteRepositoryJpa.save(estudianteJpa);
 
+    }
+
+    private void checkUpdateable(String estudianteId){
+        try {
+            findByIdEstudiantesPort.findById(estudianteId);
+        }catch (Exception e){
+            throw new UnauthorizedException();
+        }
     }
 }
