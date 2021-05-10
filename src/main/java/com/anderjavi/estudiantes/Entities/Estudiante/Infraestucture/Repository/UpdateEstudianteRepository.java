@@ -25,6 +25,7 @@ public class UpdateEstudianteRepository  implements UpdateEstudiantePort {
         estudianteJpa.setSurname(estudianteInputDto.getSurname());
         estudianteJpa.setCompanyEmail(estudianteInputDto.getCompanyEmail());
         estudianteJpa.setCreatedDate(estudianteInputDto.getCreatedDate());
+        estudianteJpa.setTerminationDate(estudianteInputDto.getTerminationDate());
         estudianteJpa.setCity(estudianteInputDto.getCity());
         estudianteJpa.setNumHoursWeek(estudianteInputDto.getNumHoursWeek());
         estudianteJpa.setBranch(estudianteInputDto.getBranch());

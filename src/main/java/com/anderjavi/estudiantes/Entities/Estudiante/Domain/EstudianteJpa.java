@@ -3,17 +3,12 @@ package com.anderjavi.estudiantes.Entities.Estudiante.Domain;
 import com.anderjavi.estudiantes.Entities.Estudiante.Domain.dto.EstudianteInputDto;
 import com.anderjavi.estudiantes.Entities.Estudiante.Domain.dto.EstudianteOutputDto;
 import com.anderjavi.estudiantes.Generator.StringPrefixedSequenceIdGenerator;
-import com.anderjavi.estudiantes.validators.ValidDate;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.sun.istack.NotNull;
-import io.swagger.annotations.ApiParam;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.persistence.*;
 import java.security.InvalidParameterException;
