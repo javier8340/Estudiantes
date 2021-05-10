@@ -102,7 +102,6 @@ public class EstudianteJpa {
 
     @NotNull
     @Column(name = "created_date")
-//    @ValidDate
     Date createdDate;
     @Column(name = "termination_date")
     Date terminationDate;
