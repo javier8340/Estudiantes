@@ -10,6 +10,7 @@ import com.anderjavi.estudiantes.exceptions.UnauthorizedException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.Optional;
 
 import static java.util.Objects.isNull;
@@ -40,38 +41,47 @@ public class UpdateEstudianteRepository  implements UpdateEstudiantePort {
 
     private EstudianteJpa updatedEstudiante(EstudianteJpa estudianteJpa, EstudianteInputDto estudianteInputDto, String id) {
 
-        if(estudianteInputDto.getName() != null) {
+        if(isNotNull(estudianteInputDto.getName()))
             estudianteJpa.setName(estudianteInputDto.getName());
-        }
-        if(estudianteInputDto.getSurname() != null) {
+
+        if(isNotNull(estudianteInputDto.getSurname()))
             estudianteJpa.setSurname(estudianteInputDto.getSurname());
-        }
-        if(estudianteInputDto.getCompanyEmail() != null) {
+
+        if(isNotNull(estudianteInputDto.getCompanyEmail()))
             estudianteJpa.setCompanyEmail(estudianteInputDto.getCompanyEmail());
-        }
-        if(estudianteInputDto.getSurname() != null) {
+
+        if(isNotNull(estudianteInputDto.getSurname()))
             estudianteJpa.setSurname(estudianteInputDto.getSurname());
-        }
-        if(estudianteInputDto.getCreatedDate() != null) {
+
+        if(isNotNull(estudianteInputDto.getCreatedDate()))
             estudianteJpa.setCreatedDate(estudianteInputDto.getCreatedDate());
-        }
-        if(estudianteInputDto.getTerminationDate() != null) {
+
+        if(isNotNull(estudianteInputDto.getTerminationDate()))
             estudianteJpa.setTerminationDate(estudianteInputDto.getTerminationDate());
-        }
-        if(estudianteInputDto.getCity() != null) {
+
+        if(isNotNull(estudianteInputDto.getCity()) )
             estudianteJpa.setCity(estudianteInputDto.getCity());
-        }
-        if(estudianteInputDto.getNumHoursWeek() != 0) {
+
+        if(isNotNull(estudianteInputDto.getNumHoursWeek()))
             estudianteJpa.setNumHoursWeek(estudianteInputDto.getNumHoursWeek());
-        }
-        if(estudianteInputDto.getBranch() != null) {
+
+        if(isNotNull(estudianteInputDto.getBranch()))
             estudianteJpa.setBranch(estudianteInputDto.getBranch());
-        }
+
 
         estudianteJpa.setActive(estudianteInputDto.isActive());
 
         estudianteJpa.setIdStudent(id);
 
         return estudianteJpa;
+    }
+
+
+    private boolean isNotNull(int value){
+        return value != 0;
+    }
+    private boolean isNotNull(Object value){
+
+        return value != null;
     }
 }
