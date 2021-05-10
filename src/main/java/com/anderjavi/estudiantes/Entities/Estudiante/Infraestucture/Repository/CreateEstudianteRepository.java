@@ -2,6 +2,7 @@ package com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository;
 
 import com.anderjavi.estudiantes.Entities.Estudiante.Domain.Estudiante;
 import com.anderjavi.estudiantes.Entities.Estudiante.Domain.EstudianteJpa;
+import com.anderjavi.estudiantes.Entities.Estudiante.Domain.dto.EstudianteInputDto;
 import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.jpa.EstudianteRepositoryJpa;
 import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.port.CreateEstudiantePort;
 import lombok.AllArgsConstructor;
@@ -17,8 +18,8 @@ public class CreateEstudianteRepository implements CreateEstudiantePort {
     private final EstudianteRepositoryJpa repository;
 
     @Override
-    public EstudianteJpa create(Estudiante estudiante) throws Exception {
-        EstudianteJpa estudianteJpa = new EstudianteJpa(estudiante);
+    public EstudianteJpa create(EstudianteInputDto estudianteInputDto) throws Exception {
+        EstudianteJpa estudianteJpa = new EstudianteJpa(estudianteInputDto);
         repository.save(estudianteJpa);
         return estudianteJpa;
     }

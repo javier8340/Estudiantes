@@ -1,5 +1,7 @@
 package com.anderjavi.estudiantes.Entities.Estudiante.Domain;
 
+import com.anderjavi.estudiantes.Entities.Estudiante.Domain.dto.EstudianteInputDto;
+import com.anderjavi.estudiantes.Entities.Estudiante.Domain.dto.EstudianteOutputDto;
 import com.anderjavi.estudiantes.Generator.StringPrefixedSequenceIdGenerator;
 import com.anderjavi.estudiantes.validators.ValidDate;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -27,18 +29,31 @@ import java.util.Date;
 )
 public class EstudianteJpa {
 
-    public EstudianteJpa(Estudiante estudiante){
-        this.name = estudiante.name;
-        this.surname = estudiante.surname;
-        this.companyEmail = estudiante.companyEmail;
-        this.personalEmail = estudiante.personalEmail;
-        this.city = estudiante.city;
-        this.numHoursWeek = estudiante.numHoursWeek;
-        this.coments = estudiante.coments;
-        this.branch = estudiante.branch;
-        this.active = estudiante.active;
-        this.createdDate = estudiante.createdDate;
-        this.terminationDate = estudiante.terminationDate;
+    public EstudianteJpa(EstudianteInputDto estudianteInputDto){
+        this.name = estudianteInputDto.getName();
+        this.surname = estudianteInputDto.getSurname();
+        this.companyEmail = estudianteInputDto.getCompanyEmail();
+        this.personalEmail = estudianteInputDto.getPersonalEmail();
+        this.city = estudianteInputDto.getCity();
+        this.numHoursWeek = estudianteInputDto.getNumHoursWeek();
+        this.coments = estudianteInputDto.getComents();
+        this.branch = estudianteInputDto.getBranch();
+        this.active = estudianteInputDto.isActive();
+        this.createdDate = estudianteInputDto.getCreatedDate();
+        this.terminationDate = estudianteInputDto.getTerminationDate();
+    }
+    public EstudianteJpa(EstudianteOutputDto estudianteOutputDto){
+        this.name = estudianteOutputDto.getName();
+        this.surname = estudianteOutputDto.getSurname();
+        this.companyEmail = estudianteOutputDto.getCompanyEmail();
+        this.personalEmail = estudianteOutputDto.getPersonalEmail();
+        this.city = estudianteOutputDto.getCity();
+        this.numHoursWeek = estudianteOutputDto.getNumHoursWeek();
+        this.coments = estudianteOutputDto.getComents();
+        this.branch = estudianteOutputDto.getBranch();
+        this.active = estudianteOutputDto.isActive();
+        this.createdDate = estudianteOutputDto.getCreatedDate();
+        this.terminationDate = estudianteOutputDto.getTerminationDate();
     }
 
     @Id
@@ -77,7 +92,6 @@ public class EstudianteJpa {
     @NotNull
     @Column(name = "num_hours_week")
     int numHoursWeek;
-
     @Column(name = "coments")
     String coments;
 
@@ -94,8 +108,6 @@ public class EstudianteJpa {
     @Column(name = "created_date")
     @ValidDate
     Date createdDate;
-
-
     @Column(name = "termination_date")
     Date terminationDate;
 }

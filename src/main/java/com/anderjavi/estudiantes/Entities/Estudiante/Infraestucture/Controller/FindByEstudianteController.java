@@ -1,8 +1,8 @@
 package com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Controller;
 
-import com.anderjavi.estudiantes.Entities.Estudiante.Domain.Estudiante;
-import com.anderjavi.estudiantes.Entities.Estudiante.Domain.dto.BusquedaEstudianteInput;
-import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.port.FindByEstudiantesPort;
+import com.anderjavi.estudiantes.Entities.Estudiante.Domain.dto.EstudianteSearchInputDto;
+import com.anderjavi.estudiantes.Entities.Estudiante.Domain.dto.EstudianteOutputDto;
+import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.port.FindByEstudiantePort;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,10 +12,10 @@ import java.util.List;
 @AllArgsConstructor
 public class FindByEstudianteController {
 
-    FindByEstudiantesPort findByEstudiantesPort;
+    FindByEstudiantePort findByEstudiantePort;
 
     @PostMapping("/api/estudiante/findby")
-    public List<Estudiante> findById(@RequestBody BusquedaEstudianteInput busquedaEstudianteInput) throws Exception {
-        return findByEstudiantesPort.findBy(busquedaEstudianteInput);
+    public List<EstudianteOutputDto> findById(@RequestBody EstudianteSearchInputDto estudianteSearchInputDto) throws Exception {
+        return findByEstudiantePort.findBy(estudianteSearchInputDto);
     }
 }

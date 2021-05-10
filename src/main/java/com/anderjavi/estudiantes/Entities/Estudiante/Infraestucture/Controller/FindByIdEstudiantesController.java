@@ -1,6 +1,7 @@
 package com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Controller;
 
 import com.anderjavi.estudiantes.Entities.Estudiante.Domain.EstudianteJpa;
+import com.anderjavi.estudiantes.Entities.Estudiante.Domain.dto.EstudianteOutputDto;
 import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.port.FindAllEstudiantesPort;
 import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.port.FindByIdEstudiantesPort;
 import io.swagger.annotations.Api;
@@ -19,7 +20,7 @@ public class FindByIdEstudiantesController {
     private FindByIdEstudiantesPort findByIdEstudiantesPort;
 
     @GetMapping("/api/estudiante/{id}")
-    public EstudianteJpa findById(@PathVariable("id") String id) throws Exception {
+    public EstudianteOutputDto findById(@PathVariable("id") String id) throws Exception {
         return findByIdEstudiantesPort.findById(id);
     }
 }

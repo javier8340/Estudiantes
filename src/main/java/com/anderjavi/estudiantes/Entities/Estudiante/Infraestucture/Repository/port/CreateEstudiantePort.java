@@ -2,7 +2,8 @@ package com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.
 
 import com.anderjavi.estudiantes.Entities.Estudiante.Domain.Estudiante;
 import com.anderjavi.estudiantes.Entities.Estudiante.Domain.EstudianteJpa;
+import com.anderjavi.estudiantes.Entities.Estudiante.Domain.dto.EstudianteInputDto;
 
 public interface CreateEstudiantePort {
-    public EstudianteJpa create(Estudiante estudiante) throws Exception;
+    public EstudianteJpa create(EstudianteInputDto estudianteInputDto) throws Exception;
 }

@@ -2,6 +2,7 @@ package com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Controller;
 
 import com.anderjavi.estudiantes.Entities.Estudiante.Domain.Estudiante;
 import com.anderjavi.estudiantes.Entities.Estudiante.Domain.EstudianteJpa;
+import com.anderjavi.estudiantes.Entities.Estudiante.Domain.dto.EstudianteInputDto;
 import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.port.CreateEstudiantePort;
 import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.port.DeleteEstudiantePort;
 import io.swagger.annotations.Api;
@@ -15,7 +16,7 @@ public class CreateEstudianteController {
     private CreateEstudiantePort createEstudiantePort;
 
     @PostMapping("/api/estudiante/")
-    public EstudianteJpa create(@RequestBody Estudiante estudiante) throws Exception {
-        return createEstudiantePort.create(estudiante);
+    public EstudianteJpa create(@RequestBody EstudianteInputDto estudianteInputDto) throws Exception {
+        return createEstudiantePort.create(estudianteInputDto);
     }
 }
