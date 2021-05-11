@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
+import java.security.InvalidParameterException;
+
 @AllArgsConstructor
 @Repository
 public class DeleteEstudianteRepository implements DeleteEstudiantePort {
@@ -25,7 +27,7 @@ public class DeleteEstudianteRepository implements DeleteEstudiantePort {
         try {
             findByIdEstudiantesPort.findById(estudianteId);
         }catch (Exception e){
-            throw new UnauthorizedException();
+            throw new InvalidParameterException("No existe el estudiante");
         }
     }
 
