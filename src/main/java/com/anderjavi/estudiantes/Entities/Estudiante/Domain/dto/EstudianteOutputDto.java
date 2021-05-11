@@ -15,6 +15,7 @@ import java.util.Date;
 public class EstudianteOutputDto {
 
     public EstudianteOutputDto(EstudianteJpa estudianteJpa){
+        this.Id = estudianteJpa.getIdStudent();
         this.name = estudianteJpa.getName();
         this.surname = estudianteJpa.getSurname();
         this.companyEmail = estudianteJpa.getCompanyEmail();
