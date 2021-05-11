@@ -9,6 +9,7 @@ import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.p
 import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.customError.EstudianteNotCreatedException;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -35,8 +36,13 @@ public class CreateEstudianteController {
         try {
             estudianteOutputDto = createEstudiantePort.create(estudianteInputDto);
             return new ResponseEntity<EstudianteOutputDto>(estudianteOutputDto,HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<String>("{status:403,message:"+e.getCause().getMessage()+"}",HttpStatus.UNAUTHORIZED);
+        } catch (DataIntegrityViolationException e) {
+            String message = e.getMostSpecificCause().getMessage();
+            return new ResponseEntity<String>("{status:401,message:"+
+                    message+
+                    "}",HttpStatus.UNAUTHORIZED);
+        }catch (Exception e) {
+            return new ResponseEntity<String>("{status:401,message:"+e.getCause().getMessage()+"}",HttpStatus.UNAUTHORIZED);
         }
 //        return estudianteOutputDto;
     }
