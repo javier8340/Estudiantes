@@ -77,7 +77,6 @@ public class UpdateEstudianteRepository  implements UpdateEstudiantePort {
     }
 
     private boolean isNotNull(Object value){
-
         return value != null;
     }
 }

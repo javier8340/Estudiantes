@@ -3,6 +3,7 @@ package com.anderjavi.estudiantes.Entities.Estudiante.Domain;
 import com.anderjavi.estudiantes.Entities.Estudiante.Domain.dto.EstudianteInputDto;
 import com.anderjavi.estudiantes.Entities.Estudiante.Domain.dto.EstudianteOutputDto;
 import com.anderjavi.estudiantes.Generator.StringPrefixedSequenceIdGenerator;
+import com.anderjavi.estudiantes.validators.ValidDate;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -66,7 +67,7 @@ public class EstudianteJpa {
     String idStudent;
 
     @NotNull
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     String name;
 
     @NotNull
@@ -106,11 +107,69 @@ public class EstudianteJpa {
     @Column(name = "termination_date")
     Date terminationDate;
 
+    public void setIdStudent(String idStudent) {
+        if (idStudent == null)
+            throw new InvalidParameterException("idStudent no puede ser null");
+        this.idStudent = idStudent;
+    }
+
+    public void setName(String name) {
+        if (name == null)
+            throw new InvalidParameterException("name no puede ser null");
+        this.name = name;
+    }
+
+    public void setSurname(String surname) {
+        if (surname == null)
+            throw new InvalidParameterException("surname no puede ser null");
+        this.surname = surname;
+    }
+
+    public void setCompanyEmail(String companyEmail) {
+        if (companyEmail == null)
+            throw new InvalidParameterException("companyEmail no puede ser null");
+        this.companyEmail = companyEmail;
+    }
+
+    public void setPersonalEmail(String personalEmail) {
+        if (personalEmail == null)
+            throw new InvalidParameterException("personalEmail no puede ser null");
+        this.personalEmail = personalEmail;
+    }
+
+    public void setCity(String city) {
+        if (city == null)
+            throw new InvalidParameterException("city no puede ser null");
+        this.city = city;
+    }
+
+    public void setNumHoursWeek(Integer numHoursWeek) {
+        if (numHoursWeek == null)
+            throw new InvalidParameterException("numHoursWeek no puede ser null");
+        this.numHoursWeek = numHoursWeek;
+    }
+
+
+
+    public void setBranch(Branch branch) {
+        if (branch == null)
+            throw new InvalidParameterException("branch no puede ser null");
+        this.branch = branch;
+    }
+
+    public void setActive(Boolean active) {
+        if (active == null)
+            throw new InvalidParameterException("active no puede ser null");
+        this.active = active;
+    }
+
     public void setCreatedDate(Date createdDate) {
         if (this.terminationDate != null){
             if (!this.terminationDate.after(createdDate)){
                 throw new InvalidParameterException("create date debe ser inferior a termination date");
             }
+        }else{
+            throw new InvalidParameterException("terminationDate no puede ser null");
         }
         this.createdDate = createdDate;
 

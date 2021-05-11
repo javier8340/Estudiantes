@@ -29,14 +29,15 @@ public class CreateEstudianteController {
     }*/
 
     @PostMapping("/api/estudiante/")
-    public EstudianteOutputDto create(@RequestBody EstudianteInputDto estudianteInputDto){
+    public ResponseEntity create(@RequestBody EstudianteInputDto estudianteInputDto){
         EstudianteOutputDto estudianteOutputDto = null;
 
         try {
             estudianteOutputDto = createEstudiantePort.create(estudianteInputDto);
+            return new ResponseEntity<EstudianteOutputDto>(estudianteOutputDto,HttpStatus.OK);
         } catch (Exception e) {
-            throw new EstudianteNotCreatedException("BLABLBALA");
+            return new ResponseEntity<String>("{status:403,message:"+e.getCause().getMessage()+"}",HttpStatus.UNAUTHORIZED);
         }
-        return estudianteOutputDto;
+//        return estudianteOutputDto;
     }
 }
