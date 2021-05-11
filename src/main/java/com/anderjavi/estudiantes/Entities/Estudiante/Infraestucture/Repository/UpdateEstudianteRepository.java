@@ -21,8 +21,9 @@ import static java.util.Objects.isNull;
 public class UpdateEstudianteRepository  implements UpdateEstudiantePort {
 
 
-    private FindByIdEstudiantesPort findByIdEstudiantesPort;
-    private EstudianteRepositoryJpa estudianteRepositoryJpa;
+    private final FindByIdEstudiantesPort findByIdEstudiantesPort;
+    private final EstudianteRepositoryJpa estudianteRepositoryJpa;
+
     @Override
     public void update(String id, EstudianteInputDto estudianteInputDto) throws Exception {
         checkUpdateable(id);
