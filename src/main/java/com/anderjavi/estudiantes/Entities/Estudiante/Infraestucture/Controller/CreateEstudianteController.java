@@ -18,15 +18,13 @@ public class CreateEstudianteController {
     private final ExceptionResolver exceptionResolver;
 
     @PostMapping("/api/estudiante/")
-    public ResponseEntity create(@RequestBody EstudianteInputDto estudianteInputDto){
-        ResponseEntity result;
-        try {
+    public ResponseEntity<EstudianteOutputDto> create(@RequestBody EstudianteInputDto estudianteInputDto){
+
+
             EstudianteOutputDto estudianteOutputDto = createEstudiantePort.create(estudianteInputDto);
-            result = new ResponseEntity<EstudianteOutputDto>(estudianteOutputDto,HttpStatus.OK);
-        }catch (Exception e){
-            result = exceptionResolver.resolver(e);
-        }
-        return result;
+        return new ResponseEntity<EstudianteOutputDto>(estudianteOutputDto,HttpStatus.OK);
+
+
     }
 
 }
