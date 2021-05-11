@@ -39,17 +39,7 @@ public class EstudianteExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(errors, HttpStatus.INTERNAL_SERVER_ERROR);
 
     }
-    @ExceptionHandler({DataIntegrityViolationException.class })
-    public ResponseEntity<CustomErrorResponse> databaseExceptionHandler(DataIntegrityViolationException exception, WebRequest request) {
 
-        CustomErrorResponse errors = new CustomErrorResponse();
-        errors.setTimestamp(LocalDateTime.now());
-        errors.setError(exception.getMostSpecificCause().getMessage());
-        errors.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
-
-        return new ResponseEntity<>(errors, HttpStatus.INTERNAL_SERVER_ERROR);
-
-    }
 
 }
 
