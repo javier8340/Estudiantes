@@ -2,10 +2,11 @@ package com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.
 
 import com.anderjavi.estudiantes.Entities.Estudiante.Domain.EstudianteJpa;
 import com.anderjavi.estudiantes.Entities.Estudiante.Domain.dto.EstudianteOutputDto;
+import com.anderjavi.estudiantes.Entities.Estudiante.application.exceptions.EstudianteNotFoundException;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface FindByIdEstudiantesPort {
-    Optional<EstudianteOutputDto> findById(String id) throws Exception;
+   EstudianteOutputDto findById(String id) throws EstudianteNotFoundException;
 }

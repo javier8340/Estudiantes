@@ -19,7 +19,7 @@ public class FindByIdEstudiantesRepository implements FindByIdEstudiantesPort {
     EstudianteRepositoryJpa estudianteRepositoryJpa;
 
     @Override
-    public Optional<EstudianteOutputDto> findById(String id) throws Exception {
-        return Optional.of(new EstudianteOutputDto(estudianteRepositoryJpa.findById(id).orElseThrow(() -> new EstudianteNotFoundException(id))));
+    public EstudianteOutputDto findById(String id) throws EstudianteNotFoundException {
+        return new EstudianteOutputDto(estudianteRepositoryJpa.findById(id).orElseThrow(() -> new EstudianteNotFoundException(id)));
     }
 }

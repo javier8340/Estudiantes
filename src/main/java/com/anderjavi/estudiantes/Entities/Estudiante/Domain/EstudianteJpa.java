@@ -2,6 +2,7 @@ package com.anderjavi.estudiantes.Entities.Estudiante.Domain;
 
 import com.anderjavi.estudiantes.Entities.Estudiante.Domain.dto.EstudianteInputDto;
 import com.anderjavi.estudiantes.Entities.Estudiante.Domain.dto.EstudianteOutputDto;
+import com.anderjavi.estudiantes.Entities.Estudiante.application.exceptions.BranchException;
 import com.anderjavi.estudiantes.Generator.StringPrefixedSequenceIdGenerator;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
@@ -33,7 +34,15 @@ public class EstudianteJpa {
         this.setCity(estudianteInputDto.getCity());
         this.setNumHoursWeek(estudianteInputDto.getNumHoursWeek());
         this.setComents(estudianteInputDto.getComents());
-        this.setBranch(Branch.valueOf(estudianteInputDto.getBranch()));
+
+        try {
+            this.setBranch(Branch.valueOf(estudianteInputDto.getBranch()));
+        }catch (IllegalArgumentException exception){
+            throw new BranchException("asd");
+        }
+
+
+
         this.setActive(estudianteInputDto.getActive());
         this.setSurname(estudianteInputDto.getSurname());
         this.setSurname(estudianteInputDto.getSurname());
@@ -48,7 +57,14 @@ public class EstudianteJpa {
         this.setCity(estudianteOutputDto.getCity());
         this.setNumHoursWeek(estudianteOutputDto.getNumHoursWeek());
         this.setComents(estudianteOutputDto.getComents());
-        this.setBranch(estudianteOutputDto.getBranch());
+
+        try {
+            this.setBranch(estudianteOutputDto.getBranch());
+        }catch (IllegalArgumentException exception){
+            throw new BranchException("as2d");
+        }
+
+
         this.setActive(estudianteOutputDto.getActive());
         this.setSurname(estudianteOutputDto.getSurname());
         this.setSurname(estudianteOutputDto.getSurname());

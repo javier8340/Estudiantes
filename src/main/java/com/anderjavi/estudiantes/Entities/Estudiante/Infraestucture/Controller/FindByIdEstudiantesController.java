@@ -21,7 +21,7 @@ public class FindByIdEstudiantesController {
     private FindByIdEstudiantesPort findByIdEstudiantesPort;
 
     @GetMapping("/api/estudiante/{id}")
-    public EstudianteOutputDto findById(@PathVariable("id") String id) throws Exception {
-        return findByIdEstudiantesPort.findById(id).orElseThrow(() -> new EstudianteNotFoundException(id));
+    public EstudianteOutputDto findById(@PathVariable("id") String id) throws EstudianteNotFoundException {
+        return findByIdEstudiantesPort.findById(id);
     }
 }

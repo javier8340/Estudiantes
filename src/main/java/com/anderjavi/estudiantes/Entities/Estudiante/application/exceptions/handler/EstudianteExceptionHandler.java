@@ -1,5 +1,6 @@
 package com.anderjavi.estudiantes.Entities.Estudiante.application.exceptions.handler;
 
+import com.anderjavi.estudiantes.Entities.Estudiante.application.exceptions.BranchException;
 import com.anderjavi.estudiantes.Entities.Estudiante.application.exceptions.CustomErrorResponse;
 import com.anderjavi.estudiantes.Entities.Estudiante.application.exceptions.EstudianteNotFoundException;
 import com.anderjavi.estudiantes.Entities.Estudiante.application.exceptions.First;
@@ -17,19 +18,27 @@ import java.time.LocalDateTime;
 @ControllerAdvice
 public class EstudianteExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(EstudianteNotFoundException.class)
-    public void springHandleNotFound(HttpServletResponse response) throws IOException {
-        response.sendError(HttpStatus.NOT_FOUND.value());
-    }
-    @ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<CustomErrorResponse> customHandleNotFound(Exception ex, WebRequest request) {
+
+    @ExceptionHandler({EstudianteNotFoundException.class })
+    public ResponseEntity<CustomErrorResponse> NotFoundHandler(Exception ex, WebRequest request) {
 
         CustomErrorResponse errors = new CustomErrorResponse();
         errors.setTimestamp(LocalDateTime.now());
-        errors.setError("Este es mi custom error");
+        errors.setError(ex.getMessage());
         errors.setStatus(HttpStatus.NOT_FOUND.value());
 
         return new ResponseEntity<>(errors, HttpStatus.NOT_FOUND);
+
+    }
+    @ExceptionHandler({BranchException.class })
+    public ResponseEntity<CustomErrorResponse> internalServerErrorHandler(Exception ex, WebRequest request) {
+
+        CustomErrorResponse errors = new CustomErrorResponse();
+        errors.setTimestamp(LocalDateTime.now());
+        errors.setError(ex.getMessage());
+        errors.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
+
+        return new ResponseEntity<>(errors, HttpStatus.INTERNAL_SERVER_ERROR);
 
     }
 

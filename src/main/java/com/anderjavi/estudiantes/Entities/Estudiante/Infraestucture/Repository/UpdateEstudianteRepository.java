@@ -21,7 +21,7 @@ public class UpdateEstudianteRepository  implements UpdateEstudiantePort {
     @Override
     public void update(String id, EstudianteInputDto estudianteInputDto) throws Exception {
         checkUpdateable(id);
-        EstudianteJpa estudianteJpa = new EstudianteJpa(findByIdEstudiantesPort.findById(id).orElseThrow(() -> new EstudianteNotFoundException(id)));
+        EstudianteJpa estudianteJpa = new EstudianteJpa(findByIdEstudiantesPort.findById(id));
 
         estudianteRepositoryJpa.save(updatedEstudiante(estudianteJpa, estudianteInputDto, id));
 
