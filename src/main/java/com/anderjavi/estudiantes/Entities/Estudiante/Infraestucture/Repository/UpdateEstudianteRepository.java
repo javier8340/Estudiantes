@@ -6,6 +6,7 @@ import com.anderjavi.estudiantes.Entities.Estudiante.Domain.dto.EstudianteInputD
 import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.jpa.EstudianteRepositoryJpa;
 import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.port.FindByIdEstudiantesPort;
 import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.port.UpdateEstudiantePort;
+import com.anderjavi.estudiantes.Entities.Estudiante.application.exceptions.EstudianteNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -20,7 +21,7 @@ public class UpdateEstudianteRepository  implements UpdateEstudiantePort {
     @Override
     public void update(String id, EstudianteInputDto estudianteInputDto) throws Exception {
         checkUpdateable(id);
-        EstudianteJpa estudianteJpa = new EstudianteJpa(findByIdEstudiantesPort.findById(id));
+        EstudianteJpa estudianteJpa = new EstudianteJpa(findByIdEstudiantesPort.findById(id).orElseThrow(() -> new EstudianteNotFoundException(id)));
 
         estudianteRepositoryJpa.save(updatedEstudiante(estudianteJpa, estudianteInputDto, id));
 
