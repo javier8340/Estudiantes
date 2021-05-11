@@ -18,7 +18,7 @@ public class UpdateEstudianteRepository  implements UpdateEstudiantePort {
     private final EstudianteRepositoryJpa estudianteRepositoryJpa;
 
     @Override
-    public void update(String id, EstudianteInputDto estudianteInputDto) throws Exception {
+    public void update(String id, EstudianteInputDto estudianteInputDto){
         checkUpdateable(id);
         EstudianteJpa estudianteJpa = new EstudianteJpa(findByIdEstudiantesPort.findById(id));
 
@@ -27,11 +27,8 @@ public class UpdateEstudianteRepository  implements UpdateEstudiantePort {
     }
 
     private void checkUpdateable(String estudianteId){
-        try {
-            findByIdEstudiantesPort.findById(estudianteId);
-        }catch (Exception e){
-            //TODO cambiar a exeption Resolver
-        }
+        findByIdEstudiantesPort.findById(estudianteId);
+
     }
 
     private EstudianteJpa updatedEstudiante(EstudianteJpa estudianteJpa, EstudianteInputDto estudianteInputDto, String id) {
