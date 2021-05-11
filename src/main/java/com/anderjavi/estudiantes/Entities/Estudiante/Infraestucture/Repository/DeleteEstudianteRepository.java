@@ -3,9 +3,7 @@ package com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository;
 import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.jpa.EstudianteRepositoryJpa;
 import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.port.DeleteEstudiantePort;
 import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.port.FindByIdEstudiantesPort;
-import com.anderjavi.estudiantes.exceptions.UnauthorizedException;
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.security.InvalidParameterException;

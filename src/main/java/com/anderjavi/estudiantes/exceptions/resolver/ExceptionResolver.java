@@ -1,4 +1,4 @@
-package com.anderjavi.estudiantes.exceptions;
+package com.anderjavi.estudiantes.exceptions.resolver;
 
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;

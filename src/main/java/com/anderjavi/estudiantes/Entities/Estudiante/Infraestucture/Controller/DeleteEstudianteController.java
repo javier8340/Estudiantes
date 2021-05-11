@@ -1,8 +1,7 @@
 package com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Controller;
 
-import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.jpa.EstudianteRepositoryJpa;
 import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.port.DeleteEstudiantePort;
-import com.anderjavi.estudiantes.exceptions.ExceptionResolver;
+import com.anderjavi.estudiantes.exceptions.resolver.ExceptionResolver;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
