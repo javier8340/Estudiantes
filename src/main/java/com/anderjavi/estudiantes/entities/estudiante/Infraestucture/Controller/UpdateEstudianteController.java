@@ -1,0 +1,25 @@
+package com.anderjavi.estudiantes.entities.estudiante.Infraestucture.Controller;
+
+
+import com.anderjavi.estudiantes.entities.estudiante.Domain.dto.EstudianteInputDto;
+import com.anderjavi.estudiantes.entities.estudiante.Infraestucture.Repository.port.UpdateEstudiantePort;
+import io.swagger.annotations.Api;
+import lombok.AllArgsConstructor;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@Api(tags = "Estudiante")
+@RestController
+@AllArgsConstructor
+public class UpdateEstudianteController {
+
+    private UpdateEstudiantePort updateEstudiantePort;
+
+    @PutMapping("/api/estudiante/{id}")
+    public void create(@RequestBody EstudianteInputDto estudianteInputDto, @PathVariable String id) throws Exception {
+        updateEstudiantePort.update(id,estudianteInputDto);
+    }
+
+}
