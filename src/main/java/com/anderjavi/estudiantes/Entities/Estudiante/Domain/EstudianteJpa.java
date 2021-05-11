@@ -3,7 +3,6 @@ package com.anderjavi.estudiantes.Entities.Estudiante.Domain;
 import com.anderjavi.estudiantes.Entities.Estudiante.Domain.dto.EstudianteInputDto;
 import com.anderjavi.estudiantes.Entities.Estudiante.Domain.dto.EstudianteOutputDto;
 import com.anderjavi.estudiantes.Generator.StringPrefixedSequenceIdGenerator;
-import com.anderjavi.estudiantes.validators.ValidDate;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,30 +26,34 @@ import java.util.Date;
 public class EstudianteJpa {
 
     public EstudianteJpa(EstudianteInputDto estudianteInputDto) {
-        this.name = estudianteInputDto.getName();
-        this.surname = estudianteInputDto.getSurname();
-        this.companyEmail = estudianteInputDto.getCompanyEmail();
-        this.personalEmail = estudianteInputDto.getPersonalEmail();
-        this.city = estudianteInputDto.getCity();
-        this.numHoursWeek = estudianteInputDto.getNumHoursWeek();
-        this.coments = estudianteInputDto.getComents();
-        this.branch = estudianteInputDto.getBranch();
-        this.active = estudianteInputDto.getActive();
+        this.setName(estudianteInputDto.getName());
+        this.setSurname(estudianteInputDto.getSurname());
+        this.setCompanyEmail(estudianteInputDto.getCompanyEmail());
+        this.setPersonalEmail(estudianteInputDto.getPersonalEmail());
+        this.setCity(estudianteInputDto.getCity());
+        this.setNumHoursWeek(estudianteInputDto.getNumHoursWeek());
+        this.setComents(estudianteInputDto.getComents());
+        this.setBranch(estudianteInputDto.getBranch());
+        this.setActive(estudianteInputDto.getActive());
+        this.setSurname(estudianteInputDto.getSurname());
+        this.setSurname(estudianteInputDto.getSurname());
         this.setTerminationDate(estudianteInputDto.getTerminationDate());
-        this.setCreatedDate(estudianteInputDto.getCreatedDate()); //cambio al setter para añadir restricciones
+        this.setCreatedDate(estudianteInputDto.getCreatedDate());
     }
     public EstudianteJpa(EstudianteOutputDto estudianteOutputDto){
-        this.name = estudianteOutputDto.getName();
-        this.surname = estudianteOutputDto.getSurname();
-        this.companyEmail = estudianteOutputDto.getCompanyEmail();
-        this.personalEmail = estudianteOutputDto.getPersonalEmail();
-        this.city = estudianteOutputDto.getCity();
-        this.numHoursWeek = estudianteOutputDto.getNumHoursWeek();
-        this.coments = estudianteOutputDto.getComents();
-        this.branch = estudianteOutputDto.getBranch();
-        this.active = estudianteOutputDto.getActive();
+        this.setName(estudianteOutputDto.getName());
+        this.setSurname(estudianteOutputDto.getSurname());
+        this.setCompanyEmail(estudianteOutputDto.getCompanyEmail());
+        this.setPersonalEmail(estudianteOutputDto.getPersonalEmail());
+        this.setCity(estudianteOutputDto.getCity());
+        this.setNumHoursWeek(estudianteOutputDto.getNumHoursWeek());
+        this.setComents(estudianteOutputDto.getComents());
+        this.setBranch(estudianteOutputDto.getBranch());
+        this.setActive(estudianteOutputDto.getActive());
+        this.setSurname(estudianteOutputDto.getSurname());
+        this.setSurname(estudianteOutputDto.getSurname());
         this.setTerminationDate(estudianteOutputDto.getTerminationDate());
-        this.setCreatedDate(estudianteOutputDto.getCreatedDate()); //cambio al setter para añadir restricciones
+        this.setCreatedDate(estudianteOutputDto.getCreatedDate());
     }
 
     @Id
