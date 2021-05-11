@@ -1,6 +1,6 @@
-package com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Controller;
+package com.anderjavi.estudiantes.estudiante.Infraestucture.Controller;
 
-import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.port.DeleteEstudiantePort;
+import com.anderjavi.estudiantes.estudiante.Infraestucture.Repository.port.DeleteEstudiantePort;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;

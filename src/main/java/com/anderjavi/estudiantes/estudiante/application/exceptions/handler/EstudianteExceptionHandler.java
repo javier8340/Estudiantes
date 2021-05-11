@@ -1,9 +1,8 @@
-package com.anderjavi.estudiantes.Entities.Estudiante.application.exceptions.handler;
+package com.anderjavi.estudiantes.estudiante.application.exceptions.handler;
 
-import com.anderjavi.estudiantes.Entities.Estudiante.application.exceptions.BranchException;
-import com.anderjavi.estudiantes.Entities.Estudiante.application.exceptions.CustomErrorResponse;
-import com.anderjavi.estudiantes.Entities.Estudiante.application.exceptions.EstudianteNotFoundException;
-import org.springframework.dao.DataIntegrityViolationException;
+import com.anderjavi.estudiantes.estudiante.application.exceptions.BranchException;
+import com.anderjavi.estudiantes.estudiante.application.exceptions.CustomErrorResponse;
+import com.anderjavi.estudiantes.estudiante.application.exceptions.EstudianteNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

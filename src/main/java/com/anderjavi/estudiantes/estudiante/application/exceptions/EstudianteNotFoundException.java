@@ -1,4 +1,4 @@
-package com.anderjavi.estudiantes.Entities.Estudiante.application.exceptions;
+package com.anderjavi.estudiantes.estudiante.application.exceptions;
 
 import com.anderjavi.estudiantes.Entities.Estudiante.Domain.dto.EstudianteInputDto;
 

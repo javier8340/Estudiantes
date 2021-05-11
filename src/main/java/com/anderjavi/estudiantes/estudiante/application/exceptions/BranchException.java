@@ -1,4 +1,4 @@
-package com.anderjavi.estudiantes.Entities.Estudiante.application.exceptions;
+package com.anderjavi.estudiantes.estudiante.application.exceptions;
 
 public class BranchException extends RuntimeException{
 

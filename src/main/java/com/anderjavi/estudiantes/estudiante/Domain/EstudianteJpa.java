@@ -1,8 +1,8 @@
-package com.anderjavi.estudiantes.Entities.Estudiante.Domain;
+package com.anderjavi.estudiantes.estudiante.Domain;
 
-import com.anderjavi.estudiantes.Entities.Estudiante.Domain.dto.EstudianteInputDto;
-import com.anderjavi.estudiantes.Entities.Estudiante.Domain.dto.EstudianteOutputDto;
-import com.anderjavi.estudiantes.Entities.Estudiante.application.exceptions.BranchException;
+import com.anderjavi.estudiantes.estudiante.Domain.dto.EstudianteInputDto;
+import com.anderjavi.estudiantes.estudiante.Domain.dto.EstudianteOutputDto;
+import com.anderjavi.estudiantes.estudiante.application.exceptions.BranchException;
 import com.anderjavi.estudiantes.Generator.StringPrefixedSequenceIdGenerator;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
