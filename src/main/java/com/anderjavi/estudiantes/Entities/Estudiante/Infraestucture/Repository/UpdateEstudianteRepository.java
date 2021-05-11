@@ -42,34 +42,34 @@ public class UpdateEstudianteRepository  implements UpdateEstudiantePort {
 
     private EstudianteJpa updatedEstudiante(EstudianteJpa estudianteJpa, EstudianteInputDto estudianteInputDto, String id) {
 
-        if(isNotNull(estudianteInputDto.getName()))
+        if(estudianteInputDto.getName() != null)
             estudianteJpa.setName(estudianteInputDto.getName());
 
-        if(isNotNull(estudianteInputDto.getSurname()))
+        if(estudianteInputDto.getSurname() != null)
             estudianteJpa.setSurname(estudianteInputDto.getSurname());
 
-        if(isNotNull(estudianteInputDto.getCompanyEmail()))
+        if(estudianteInputDto.getCompanyEmail() != null)
             estudianteJpa.setCompanyEmail(estudianteInputDto.getCompanyEmail());
 
-        if(isNotNull(estudianteInputDto.getSurname()))
+        if(estudianteInputDto.getSurname() != null)
             estudianteJpa.setSurname(estudianteInputDto.getSurname());
 
-        if(isNotNull(estudianteInputDto.getCreatedDate()))
+        if(estudianteInputDto.getCreatedDate() != null)
             estudianteJpa.setCreatedDate(estudianteInputDto.getCreatedDate());
 
-        if(isNotNull(estudianteInputDto.getTerminationDate()))
+        if(estudianteInputDto.getTerminationDate() != null)
             estudianteJpa.setTerminationDate(estudianteInputDto.getTerminationDate());
 
-        if(isNotNull(estudianteInputDto.getCity()) )
+        if(estudianteInputDto.getCity() != null )
             estudianteJpa.setCity(estudianteInputDto.getCity());
 
-        if(isNotNull(estudianteInputDto.getNumHoursWeek()))
+        if(estudianteInputDto.getNumHoursWeek() != null)
             estudianteJpa.setNumHoursWeek(estudianteInputDto.getNumHoursWeek());
 
-        if(isNotNull(estudianteInputDto.getBranch()))
+        if(estudianteInputDto.getBranch() != null)
             estudianteJpa.setBranch(Branch.valueOf(estudianteInputDto.getBranch()));
 
-        if(isNotNull(estudianteInputDto.getActive()))
+        if(estudianteInputDto.getActive() != null)
             estudianteJpa.setActive(estudianteInputDto.getActive());
 
         estudianteJpa.setIdStudent(id);
@@ -77,7 +77,5 @@ public class UpdateEstudianteRepository  implements UpdateEstudiantePort {
         return estudianteJpa;
     }
 
-    private boolean isNotNull(Object value){
-        return value != null;
-    }
+
 }
