@@ -3,7 +3,6 @@ package com.anderjavi.estudiantes.Entities.Estudiante.application.exceptions.han
 import com.anderjavi.estudiantes.Entities.Estudiante.application.exceptions.BranchException;
 import com.anderjavi.estudiantes.Entities.Estudiante.application.exceptions.CustomErrorResponse;
 import com.anderjavi.estudiantes.Entities.Estudiante.application.exceptions.EstudianteNotFoundException;
-import com.anderjavi.estudiantes.Entities.Estudiante.application.exceptions.First;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -11,8 +10,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.time.LocalDateTime;
 
 @ControllerAdvice
