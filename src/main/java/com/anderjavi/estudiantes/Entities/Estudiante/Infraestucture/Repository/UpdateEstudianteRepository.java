@@ -68,18 +68,14 @@ public class UpdateEstudianteRepository  implements UpdateEstudiantePort {
         if(isNotNull(estudianteInputDto.getBranch()))
             estudianteJpa.setBranch(estudianteInputDto.getBranch());
 
-
-        estudianteJpa.setActive(estudianteInputDto.isActive());
+        if(isNotNull(estudianteInputDto.getActive()))
+            estudianteJpa.setActive(estudianteInputDto.getActive());
 
         estudianteJpa.setIdStudent(id);
 
         return estudianteJpa;
     }
 
-
-    private boolean isNotNull(int value){
-        return value != 0;
-    }
     private boolean isNotNull(Object value){
 
         return value != null;

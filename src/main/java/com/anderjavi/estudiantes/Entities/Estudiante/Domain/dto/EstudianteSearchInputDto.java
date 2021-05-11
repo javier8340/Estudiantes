@@ -9,18 +9,18 @@ import java.util.Date;
 @Data
 public class EstudianteSearchInputDto {
 
-    String name;
-    String surname;
-    String companyEmail;
-    String personalEmail;
-    String city;
-    int numHoursWeek;
-    String coments;
-    Branch branch;
-    boolean active;
+    private String name;
+    private String surname;
+    private String companyEmail;
+    private String personalEmail;
+    private String city;
+    private Integer numHoursWeek;
+    private String coments;
+    private Branch branch;
+    private Boolean active;
     @JsonFormat(pattern = "MM/dd/yyyy")
-    Date createdDate;
+    private Date createdDate;
     @JsonFormat(pattern = "MM/dd/yyyy")
-    Date terminationDate;
+    private Date terminationDate;
 
 }

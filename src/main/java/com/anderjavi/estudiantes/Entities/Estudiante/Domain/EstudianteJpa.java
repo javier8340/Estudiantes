@@ -34,7 +34,7 @@ public class EstudianteJpa {
         this.numHoursWeek = estudianteInputDto.getNumHoursWeek();
         this.coments = estudianteInputDto.getComents();
         this.branch = estudianteInputDto.getBranch();
-        this.active = estudianteInputDto.isActive();
+        this.active = estudianteInputDto.getActive();
         this.setTerminationDate(estudianteInputDto.getTerminationDate());
         this.setCreatedDate(estudianteInputDto.getCreatedDate()); //cambio al setter para añadir restricciones
     }
@@ -47,7 +47,7 @@ public class EstudianteJpa {
         this.numHoursWeek = estudianteOutputDto.getNumHoursWeek();
         this.coments = estudianteOutputDto.getComents();
         this.branch = estudianteOutputDto.getBranch();
-        this.active = estudianteOutputDto.isActive();
+        this.active = estudianteOutputDto.getActive();
         this.setTerminationDate(estudianteOutputDto.getTerminationDate());
         this.setCreatedDate(estudianteOutputDto.getCreatedDate()); //cambio al setter para añadir restricciones
     }
@@ -87,7 +87,7 @@ public class EstudianteJpa {
 
     @NotNull
     @Column(name = "num_hours_week")
-    int numHoursWeek;
+    Integer numHoursWeek;
     @Column(name = "coments")
     String coments;
 
@@ -97,7 +97,7 @@ public class EstudianteJpa {
 
     @NotNull
     @Column(name = "active")
-    boolean active;
+    Boolean active;
 
 
     @NotNull

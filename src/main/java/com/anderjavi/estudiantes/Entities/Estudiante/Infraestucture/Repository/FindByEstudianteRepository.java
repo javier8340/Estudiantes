@@ -74,7 +74,7 @@ public class FindByEstudianteRepository implements FindByEstudiantePort {
                 finalPredicate = predicado;
             }
         }
-        if (estudianteSearchInputDto.getCompanyEmail() != null){
+        if (estudianteSearchInputDto.getPersonalEmail() != null){
             Predicate predicado = criteriaBuilder.equal(estudiante.get("personalEmail"), estudianteSearchInputDto.getPersonalEmail());
 
             if (finalPredicate != null){
@@ -92,7 +92,7 @@ public class FindByEstudianteRepository implements FindByEstudiantePort {
                 finalPredicate = predicado;
             }
         }
-        if (estudianteSearchInputDto.getNumHoursWeek() != 0){
+        if (estudianteSearchInputDto.getNumHoursWeek() != null){
             Predicate predicado = criteriaBuilder.equal(estudiante.get("numHoursWeek"), estudianteSearchInputDto.getNumHoursWeek());
 
             if (finalPredicate != null){
@@ -101,7 +101,7 @@ public class FindByEstudianteRepository implements FindByEstudiantePort {
                 finalPredicate = predicado;
             }
         }
-        if (estudianteSearchInputDto.getNumHoursWeek() != 0){
+        if (estudianteSearchInputDto.getComents() != null){
             Predicate predicado = criteriaBuilder.equal(estudiante.get("coments"), estudianteSearchInputDto.getComents());
 
             if (finalPredicate != null){
@@ -119,8 +119,8 @@ public class FindByEstudianteRepository implements FindByEstudiantePort {
                 finalPredicate = predicado;
             }
         }
-        if (estudianteSearchInputDto.isActive()){
-            Predicate predicado = criteriaBuilder.equal(estudiante.get("active"), estudianteSearchInputDto.isActive());
+        if (estudianteSearchInputDto.getActive() != null){
+            Predicate predicado = criteriaBuilder.equal(estudiante.get("active"), estudianteSearchInputDto.getActive());
 
             if (finalPredicate != null){
                 finalPredicate = criteriaBuilder.and(finalPredicate,predicado);
@@ -137,7 +137,7 @@ public class FindByEstudianteRepository implements FindByEstudiantePort {
                 finalPredicate = predicado;
             }
         }
-        if (estudianteSearchInputDto.getCreatedDate() != null){
+        if (estudianteSearchInputDto.getTerminationDate() != null){
             Predicate predicado = criteriaBuilder.equal(estudiante.get("terminationDate"), estudianteSearchInputDto.getTerminationDate());
 
             if (finalPredicate != null){
