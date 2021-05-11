@@ -15,7 +15,10 @@ public class FindByEstudianteController {
     FindByEstudiantePort findByEstudiantePort;
 
     @PostMapping("/api/estudiante/findby")
-    public List<EstudianteOutputDto> findById(@RequestBody EstudianteSearchInputDto estudianteSearchInputDto) throws Exception {
+    public List<EstudianteOutputDto> findBy(@RequestBody EstudianteSearchInputDto estudianteSearchInputDto) {
+        if(findByEstudiantePort.findBy(estudianteSearchInputDto).isEmpty()) {
+            throw new EstudianteNotFoundException();
+        }
         return findByEstudiantePort.findBy(estudianteSearchInputDto);
     }
 }
