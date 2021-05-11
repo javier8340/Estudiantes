@@ -38,7 +38,7 @@ public class EstudianteJpa {
         try {
             this.setBranch(Branch.valueOf(estudianteInputDto.getBranch()));
         }catch (IllegalArgumentException exception){
-            throw new BranchException("asd");
+            throw new BranchException();
         }
 
 
@@ -61,7 +61,7 @@ public class EstudianteJpa {
         try {
             this.setBranch(estudianteOutputDto.getBranch());
         }catch (IllegalArgumentException exception){
-            throw new BranchException("as2d");
+            throw new BranchException();
         }
 
 

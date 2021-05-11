@@ -6,6 +6,6 @@ public class BranchException extends RuntimeException{
         super(mensaje);
     }
     public BranchException() {
-        super("branch no esta bien seleccionado");
+        super("El valor indicadio no pertenece a Branch");
     }
 }
