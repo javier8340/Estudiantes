@@ -1,6 +1,6 @@
 package com.anderjavi.estudiantes.exception;
 
-import com.anderjavi.estudiantes.Entities.Estudiante.application.exceptions.CustomErrorResponse;
+import com.anderjavi.estudiantes.estudiante.application.exceptions.CustomErrorResponse;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

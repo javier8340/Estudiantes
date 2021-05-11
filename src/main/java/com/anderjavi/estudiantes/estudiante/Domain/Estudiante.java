@@ -1,6 +1,5 @@
-package com.anderjavi.estudiantes.Entities.Estudiante.Domain;
+package com.anderjavi.estudiantes.estudiante.Domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

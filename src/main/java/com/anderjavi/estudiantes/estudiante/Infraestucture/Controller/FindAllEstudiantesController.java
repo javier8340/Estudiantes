@@ -1,8 +1,7 @@
-package com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Controller;
+package com.anderjavi.estudiantes.estudiante.Infraestucture.Controller;
 
-import com.anderjavi.estudiantes.Entities.Estudiante.Domain.EstudianteJpa;
-import com.anderjavi.estudiantes.Entities.Estudiante.Domain.dto.EstudianteOutputDto;
-import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.port.FindAllEstudiantesPort;
+import com.anderjavi.estudiantes.estudiante.Domain.dto.EstudianteOutputDto;
+import com.anderjavi.estudiantes.estudiante.Infraestucture.Repository.port.FindAllEstudiantesPort;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

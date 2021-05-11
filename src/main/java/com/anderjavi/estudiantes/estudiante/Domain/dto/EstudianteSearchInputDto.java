@@ -1,6 +1,6 @@
-package com.anderjavi.estudiantes.Entities.Estudiante.Domain.dto;
+package com.anderjavi.estudiantes.estudiante.Domain.dto;
 
-import com.anderjavi.estudiantes.Entities.Estudiante.Domain.Branch;
+import com.anderjavi.estudiantes.estudiante.Domain.Branch;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 

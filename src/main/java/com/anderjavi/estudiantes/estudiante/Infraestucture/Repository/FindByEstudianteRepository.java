@@ -1,9 +1,9 @@
-package com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository;
+package com.anderjavi.estudiantes.estudiante.Infraestucture.Repository;
 
-import com.anderjavi.estudiantes.Entities.Estudiante.Domain.EstudianteJpa;
-import com.anderjavi.estudiantes.Entities.Estudiante.Domain.dto.EstudianteSearchInputDto;
-import com.anderjavi.estudiantes.Entities.Estudiante.Domain.dto.EstudianteOutputDto;
-import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.port.FindByEstudiantePort;
+import com.anderjavi.estudiantes.estudiante.Domain.EstudianteJpa;
+import com.anderjavi.estudiantes.estudiante.Domain.dto.EstudianteSearchInputDto;
+import com.anderjavi.estudiantes.estudiante.Domain.dto.EstudianteOutputDto;
+import com.anderjavi.estudiantes.estudiante.Infraestucture.Repository.port.FindByEstudiantePort;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 

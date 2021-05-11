@@ -1,12 +1,11 @@
-package com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository;
+package com.anderjavi.estudiantes.estudiante.Infraestucture.Repository;
 
-import com.anderjavi.estudiantes.Entities.Estudiante.Domain.Branch;
-import com.anderjavi.estudiantes.Entities.Estudiante.Domain.EstudianteJpa;
-import com.anderjavi.estudiantes.Entities.Estudiante.Domain.dto.EstudianteInputDto;
-import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.jpa.EstudianteRepositoryJpa;
-import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.port.FindByIdEstudiantesPort;
-import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.port.UpdateEstudiantePort;
-import com.anderjavi.estudiantes.Entities.Estudiante.application.exceptions.EstudianteNotFoundException;
+import com.anderjavi.estudiantes.estudiante.Domain.Branch;
+import com.anderjavi.estudiantes.estudiante.Domain.EstudianteJpa;
+import com.anderjavi.estudiantes.estudiante.Domain.dto.EstudianteInputDto;
+import com.anderjavi.estudiantes.estudiante.Infraestucture.Repository.jpa.EstudianteRepositoryJpa;
+import com.anderjavi.estudiantes.estudiante.Infraestucture.Repository.port.FindByIdEstudiantesPort;
+import com.anderjavi.estudiantes.estudiante.Infraestucture.Repository.port.UpdateEstudiantePort;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 

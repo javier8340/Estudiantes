@@ -1,8 +1,8 @@
-package com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository;
+package com.anderjavi.estudiantes.estudiante.Infraestucture.Repository;
 
-import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.jpa.EstudianteRepositoryJpa;
-import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.port.DeleteEstudiantePort;
-import com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository.port.FindByIdEstudiantesPort;
+import com.anderjavi.estudiantes.estudiante.Infraestucture.Repository.jpa.EstudianteRepositoryJpa;
+import com.anderjavi.estudiantes.estudiante.Infraestucture.Repository.port.DeleteEstudiantePort;
+import com.anderjavi.estudiantes.estudiante.Infraestucture.Repository.port.FindByIdEstudiantesPort;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 

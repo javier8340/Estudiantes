@@ -1,4 +1,4 @@
-package com.anderjavi.estudiantes.Entities.Estudiante.application.exceptions;
+package com.anderjavi.estudiantes.estudiante.application.exceptions;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
