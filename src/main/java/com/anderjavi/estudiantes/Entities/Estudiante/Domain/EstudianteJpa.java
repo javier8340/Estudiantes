@@ -33,7 +33,7 @@ public class EstudianteJpa {
         this.setCity(estudianteInputDto.getCity());
         this.setNumHoursWeek(estudianteInputDto.getNumHoursWeek());
         this.setComents(estudianteInputDto.getComents());
-        this.setBranch(estudianteInputDto.getBranch());
+        this.setBranch(Branch.valueOf(estudianteInputDto.getBranch()));
         this.setActive(estudianteInputDto.getActive());
         this.setSurname(estudianteInputDto.getSurname());
         this.setSurname(estudianteInputDto.getSurname());

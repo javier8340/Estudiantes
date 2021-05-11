@@ -1,5 +1,6 @@
 package com.anderjavi.estudiantes.Entities.Estudiante.Infraestucture.Repository;
 
+import com.anderjavi.estudiantes.Entities.Estudiante.Domain.Branch;
 import com.anderjavi.estudiantes.Entities.Estudiante.Domain.Estudiante;
 import com.anderjavi.estudiantes.Entities.Estudiante.Domain.EstudianteJpa;
 import com.anderjavi.estudiantes.Entities.Estudiante.Domain.dto.EstudianteInputDto;
@@ -66,7 +67,7 @@ public class UpdateEstudianteRepository  implements UpdateEstudiantePort {
             estudianteJpa.setNumHoursWeek(estudianteInputDto.getNumHoursWeek());
 
         if(isNotNull(estudianteInputDto.getBranch()))
-            estudianteJpa.setBranch(estudianteInputDto.getBranch());
+            estudianteJpa.setBranch(Branch.valueOf(estudianteInputDto.getBranch()));
 
         if(isNotNull(estudianteInputDto.getActive()))
             estudianteJpa.setActive(estudianteInputDto.getActive());

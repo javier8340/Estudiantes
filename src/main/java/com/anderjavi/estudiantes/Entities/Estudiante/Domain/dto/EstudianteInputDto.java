@@ -22,7 +22,7 @@ public class EstudianteInputDto {
         this.city = estudianteJpa.getCity();
         this.numHoursWeek = estudianteJpa.getNumHoursWeek();
         this.coments = estudianteJpa.getComents();
-        this.branch = estudianteJpa.getBranch();
+        this.branch = estudianteJpa.getBranch().toString();
         this.active = estudianteJpa.getActive();
         this.createdDate = estudianteJpa.getCreatedDate();
         this.terminationDate = estudianteJpa.getTerminationDate();
@@ -35,7 +35,7 @@ public class EstudianteInputDto {
     private String city;
     private Integer numHoursWeek;
     private String coments;
-    private Branch branch;
+    private String branch;
     private Boolean active;
     @JsonFormat(pattern = "MM/dd/yyyy")
     private Date createdDate;
