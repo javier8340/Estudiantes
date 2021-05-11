@@ -5,5 +5,5 @@ import com.anderjavi.estudiantes.entities.estudiante.Domain.dto.EstudianteInputD
 
 public interface UpdateEstudiantePort {
 
-     void update(String id, EstudianteInputDto estudianteInputDto) throws Exception;
+     void update(String id, EstudianteInputDto estudianteInputDto);
 }
