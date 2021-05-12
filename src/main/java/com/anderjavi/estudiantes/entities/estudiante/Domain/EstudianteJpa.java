@@ -9,6 +9,7 @@ import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
@@ -16,6 +17,7 @@ import javax.persistence.*;
 import java.security.InvalidParameterException;
 import java.util.Date;
 
+@Slf4j
 @Entity
 @AllArgsConstructor @NoArgsConstructor @Data
 @Table(
@@ -39,6 +41,7 @@ public class EstudianteJpa {
         try {
             this.setBranch(Branch.valueOf(estudianteInputDto.getBranch()));
         }catch (IllegalArgumentException exception){
+            log.error("Error al introducir Branch -> " + exception.getMessage());
             throw new BranchException();
         }
 

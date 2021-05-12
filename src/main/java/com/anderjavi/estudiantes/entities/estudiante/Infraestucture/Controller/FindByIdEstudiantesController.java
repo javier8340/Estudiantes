@@ -2,7 +2,7 @@ package com.anderjavi.estudiantes.entities.estudiante.Infraestucture.Controller;
 
 import com.anderjavi.estudiantes.entities.estudiante.Domain.dto.EstudianteOutputDto;
 import com.anderjavi.estudiantes.entities.estudiante.Infraestucture.Repository.port.FindByIdEstudiantesPort;
-import com.anderjavi.estudiantes.entities.estudiante.application.exceptions.EstudianteNotFoundException;
+import com.anderjavi.estudiantes.entities.estudiante.application.exceptions.NotFoundException;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +17,7 @@ public class FindByIdEstudiantesController {
     private FindByIdEstudiantesPort findByIdEstudiantesPort;
 
     @GetMapping("/api/estudiante/{id}")
-    public EstudianteOutputDto findById(@PathVariable("id") String id) throws EstudianteNotFoundException {
+    public EstudianteOutputDto findById(@PathVariable("id") String id) throws NotFoundException {
         return findByIdEstudiantesPort.findById(id);
     }
 }

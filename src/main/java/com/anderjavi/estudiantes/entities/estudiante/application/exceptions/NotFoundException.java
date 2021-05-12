@@ -2,12 +2,12 @@ package com.anderjavi.estudiantes.entities.estudiante.application.exceptions;
 
 
 
-public class EstudianteNotFoundException extends RuntimeException {
+public class NotFoundException extends RuntimeException {
 
-    public EstudianteNotFoundException(String id) {
+    public NotFoundException(String id) {
         super("No se pudo encontrar al estudiante con Id = " + id);
     }
-    public EstudianteNotFoundException() {
+    public NotFoundException() {
         super("No se pudo encontrar al estudiante");
     }
 }

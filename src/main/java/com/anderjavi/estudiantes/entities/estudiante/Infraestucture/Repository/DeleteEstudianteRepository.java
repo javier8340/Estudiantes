@@ -3,6 +3,7 @@ package com.anderjavi.estudiantes.entities.estudiante.Infraestucture.Repository;
 import com.anderjavi.estudiantes.entities.estudiante.Infraestucture.Repository.jpa.EstudianteRepositoryJpa;
 import com.anderjavi.estudiantes.entities.estudiante.Infraestucture.Repository.port.DeleteEstudiantePort;
 import com.anderjavi.estudiantes.entities.estudiante.Infraestucture.Repository.port.FindByIdEstudiantesPort;
+import com.anderjavi.estudiantes.entities.estudiante.application.exceptions.NotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -25,9 +26,7 @@ public class DeleteEstudianteRepository implements DeleteEstudiantePort {
         try {
             findByIdEstudiantesPort.findById(estudianteId);
         }catch (Exception e){
-            throw new InvalidParameterException("No existe el estudiante");
+            throw new NotFoundException(estudianteId);
         }
     }
-
-
 }

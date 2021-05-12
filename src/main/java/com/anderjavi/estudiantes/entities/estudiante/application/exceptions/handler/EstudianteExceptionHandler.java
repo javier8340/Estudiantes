@@ -2,7 +2,7 @@ package com.anderjavi.estudiantes.entities.estudiante.application.exceptions.han
 
 import com.anderjavi.estudiantes.entities.estudiante.application.exceptions.BranchException;
 import com.anderjavi.estudiantes.entities.estudiante.application.exceptions.CustomErrorResponse;
-import com.anderjavi.estudiantes.entities.estudiante.application.exceptions.EstudianteNotFoundException;
+import com.anderjavi.estudiantes.entities.estudiante.application.exceptions.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 public class EstudianteExceptionHandler extends ResponseEntityExceptionHandler {
 
 
-    @ExceptionHandler({EstudianteNotFoundException.class })
+    @ExceptionHandler({NotFoundException.class })
     public ResponseEntity<CustomErrorResponse> NotFoundHandler(Exception ex, WebRequest request) {
 
         CustomErrorResponse errors = new CustomErrorResponse();

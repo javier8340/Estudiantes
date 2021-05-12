@@ -21,11 +21,7 @@ public class CreateEstudianteController {
     @PostMapping("/api/estudiante/")
     public ResponseEntity<EstudianteOutputDto> create(@RequestBody EstudianteInputDto estudianteInputDto){
 
-
             EstudianteOutputDto estudianteOutputDto = createEstudiantePort.create(estudianteInputDto);
         return new ResponseEntity<EstudianteOutputDto>(estudianteOutputDto,HttpStatus.OK);
-
-
     }
-
 }
