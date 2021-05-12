@@ -3,7 +3,6 @@ package com.anderjavi.estudiantes.entities.estudiante.Infraestucture.Controller;
 
 import com.anderjavi.estudiantes.entities.estudiante.Domain.dto.EstudianteInputDto;
 import com.anderjavi.estudiantes.entities.estudiante.Infraestucture.Repository.port.UpdateEstudiantePort;
-import com.anderjavi.estudiantes.entities.estudiante.application.exceptions.UpdateException;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,11 +21,8 @@ public class UpdateEstudianteController {
 
     @PutMapping("/api/estudiante/{id}")
     public void create(@RequestBody EstudianteInputDto estudianteInputDto, @PathVariable String id) {
-        try{
+
         updateEstudiantePort.update(id,estudianteInputDto);
-        } catch (Exception e) {
-            log.error("Error al actualizar estudiante -> " + e.getMessage());
-            throw new UpdateException(estudianteInputDto, id);
-        }
+
     }
 }
