@@ -7,8 +7,10 @@ import com.anderjavi.estudiantes.entities.estudiante.Infraestucture.Repository.j
 import com.anderjavi.estudiantes.entities.estudiante.Infraestucture.Repository.port.FindByIdEstudiantesPort;
 import com.anderjavi.estudiantes.entities.estudiante.Infraestucture.Repository.port.UpdateEstudiantePort;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
+@Slf4j
 @Repository
 @AllArgsConstructor
 public class UpdateEstudianteRepository  implements UpdateEstudiantePort {
@@ -19,6 +21,7 @@ public class UpdateEstudianteRepository  implements UpdateEstudiantePort {
 
     @Override
     public void update(String id, EstudianteInputDto estudianteInputDto){
+        log.debug("editando estudiante " + id);
         checkUpdateable(id);
         EstudianteJpa estudianteJpa = new EstudianteJpa(findByIdEstudiantesPort.findById(id));
 
@@ -28,6 +31,7 @@ public class UpdateEstudianteRepository  implements UpdateEstudiantePort {
 
     private void checkUpdateable(String estudianteId){
         findByIdEstudiantesPort.findById(estudianteId);
+        log.debug("estudiante editar existe");
 
     }
 
