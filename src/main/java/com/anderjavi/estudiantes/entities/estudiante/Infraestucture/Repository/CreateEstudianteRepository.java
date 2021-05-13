@@ -7,8 +7,10 @@ import com.anderjavi.estudiantes.entities.estudiante.Domain.dto.EstudianteOutput
 import com.anderjavi.estudiantes.entities.estudiante.Infraestucture.Repository.jpa.EstudianteRepositoryJpa;
 import com.anderjavi.estudiantes.entities.estudiante.Infraestucture.Repository.port.CreateEstudiantePort;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
+@Slf4j
 @AllArgsConstructor
 @Repository
 public class CreateEstudianteRepository implements CreateEstudiantePort {
@@ -17,6 +19,7 @@ public class CreateEstudianteRepository implements CreateEstudiantePort {
 
     @Override
     public EstudianteOutputDto create(EstudianteInputDto estudianteInputDto) {
+        log.debug("Crear Usuario");
         EstudianteJpa estudianteJpa = new EstudianteJpa(estudianteInputDto);
         repository.save(estudianteJpa);
         return new EstudianteOutputDto(estudianteJpa);

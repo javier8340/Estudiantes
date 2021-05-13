@@ -3,7 +3,7 @@ package com.anderjavi.estudiantes.entities.estudiante.Infraestucture.Controller;
 import com.anderjavi.estudiantes.entities.estudiante.Domain.dto.EstudianteOutputDto;
 import com.anderjavi.estudiantes.entities.estudiante.Domain.dto.EstudianteSearchInputDto;
 import com.anderjavi.estudiantes.entities.estudiante.Infraestucture.Repository.port.FindByEstudiantePort;
-import com.anderjavi.estudiantes.entities.estudiante.application.exceptions.NotFoundException;
+import com.anderjavi.estudiantes.exception.NotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

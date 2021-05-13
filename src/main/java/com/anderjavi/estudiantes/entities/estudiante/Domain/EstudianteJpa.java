@@ -4,7 +4,7 @@ package com.anderjavi.estudiantes.entities.estudiante.Domain;
 import com.anderjavi.estudiantes.Generator.StringPrefixedSequenceIdGenerator;
 import com.anderjavi.estudiantes.entities.estudiante.Domain.dto.EstudianteInputDto;
 import com.anderjavi.estudiantes.entities.estudiante.Domain.dto.EstudianteOutputDto;
-import com.anderjavi.estudiantes.entities.estudiante.application.exceptions.BranchException;
+import com.anderjavi.estudiantes.exception.BranchException;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;

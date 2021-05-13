@@ -1,4 +1,4 @@
-package com.anderjavi.estudiantes.entities.estudiante.application.exceptions;
+package com.anderjavi.estudiantes.exception;
 
 
 
