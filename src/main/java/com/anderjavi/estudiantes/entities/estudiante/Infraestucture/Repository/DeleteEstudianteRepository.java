@@ -28,7 +28,7 @@ public class DeleteEstudianteRepository implements DeleteEstudiantePort {
             findByIdEstudiantesPort.findById(estudianteId);
         }catch (Exception e){
             log.debug("No se puede borrar porque no existe");
-            throw new NotFoundException(estudianteId);
+            throw new NotFoundException("No se pudo encontrar al estudiante con Id = "+estudianteId);
         }
     }
 }

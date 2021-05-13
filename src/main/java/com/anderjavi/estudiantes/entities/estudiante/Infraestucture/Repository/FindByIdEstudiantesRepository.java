@@ -15,6 +15,6 @@ public class FindByIdEstudiantesRepository implements FindByIdEstudiantesPort {
 
     @Override
     public EstudianteOutputDto findById(String id) throws NotFoundException {
-        return new EstudianteOutputDto(estudianteRepositoryJpa.findById(id).orElseThrow(() -> new NotFoundException(id)));
+        return new EstudianteOutputDto(estudianteRepositoryJpa.findById(id).orElseThrow(() -> new NotFoundException("No se pudo encontrar al estudiante con Id = "+id)));
     }
 }
